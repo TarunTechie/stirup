@@ -1,13 +1,19 @@
 import './App.css'
 import './index.css'
 import Card from './components/card'
+import Top from './components/top'
 function App() {
   return (
     <>
-    <Card/>
-    <h1 className="text-3xl font-bold underline">
-      Hello world!
-    </h1>
+    <Top/>
+
+    <div className='flex'>
+    <Card
+    image={"/images/random.jpeg"}
+    name={"RANDOM"}
+    content={"this card will be genetating random recepies in the card so ya this is a card sdysdfhdfhdrejertsejyerjyethestetyheyeye"}
+    />
+    </div>
     </>
   )
 }

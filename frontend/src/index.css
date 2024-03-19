@@ -1,3 +1,56 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@font-face{
+    font-family: 'heading';
+    src: url('public/fonts/AuralyessFreeTrial-RpMrE.ttf') format('truetype');
+}
+body
+{
+    background-color:#F2E3DB;
+}
+.shaeff
+{
+    box-shadow: 5px 4px 10px 1px black;
+}
+.card:hover .crdtext
+{
+    margin-top: 15%;
+    background-color: rgba(255, 102, 14, 0.8);
+    animation: reveal 1s ease-in-out forwards;
+}
+.content
+{
+    display:none;
+    opacity: 0;
+    overflow: hidden;
+}
+.card:hover .content
+{
+    display: grid;
+    backdrop-filter: blur(15px);
+    animation: reveal 1s ease-in forwards;
+    @apply w-80;
+}
+.card:hover .crdname
+{
+    font-size: larger;
+    padding-bottom: 20px;
+}
+@keyframes reveal {
+    0%
+    {
+        opacity: 0.5;
+        height: 0%;
+    }
+    50%
+    {
+        height: 20%;
+    }
+    100%
+    {
+        opacity: 1;
+        height: fit-content;
+    }
+}
