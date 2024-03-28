@@ -1,7 +1,8 @@
 import './App.css'
 import './index.css'
 import Top from './components/top'
-import cards from './constants/mianScreen'
+import Features from './components/features'
+
 function App() {
   return (
     <>
@@ -9,16 +10,7 @@ function App() {
     <div className='mb-8'>
       <img src="/images/frontpage.png" className='w-screen h-screen '/>
     </div>
-    <div className='flex'>
-    {cards.map(card =>(
-          <Card
-          image={card.image}
-          name={card.name}
-          content={card.content}
-          />
-        ))
-      }
-    </div>
+    <Features/>
     </>
   )
 }

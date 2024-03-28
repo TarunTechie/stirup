@@ -1,4 +1,5 @@
 import Card from './card'
+import cards from '../constants/mianScreen'
 export default function Features()
 {
     return <>
@@ -10,10 +11,13 @@ export default function Features()
         <h1 className='font-sill text-maron'>Delicious</h1>
         </div>
     </div>
-    <Card
-    image={"/images/random.jpeg"}
-    name={"RANDOM"}
-    content={"this card will be genetating random recepies in the card so ya this is a card sdysdfhdfhdrejertsejyerjyethestetyheyeye"}
-    />
+    {cards.map(card =>(
+          <Card
+          image={card.image}
+          name={card.name}
+          content={card.content}
+          />
+        ))
+      }
     </>
 }
