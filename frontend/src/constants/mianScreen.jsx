@@ -1,4 +1,4 @@
-const cardss =[
+const cards =[
     {
         '_id':'1',
         'name':'CAMERA',
@@ -25,3 +25,5 @@ const cardss =[
         'content':'Discover culinary inspiration at the click of a button with our random recipe generator! Whether your feeling adventurous in the kitchen or simply seeking fresh meal ideas, our website delivers a diverse selection of recipes at your fingertips.'
     }
 ]
+
+export default cards

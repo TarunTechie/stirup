@@ -2,6 +2,7 @@ import './App.css'
 import './index.css'
 import Card from './components/card'
 import Top from './components/top'
+import cards from './constants/mianScreen'
 function App() {
   return (
     <>
@@ -10,11 +11,16 @@ function App() {
       <img src="/images/frontpage.png" alt="" srcset="" />
     </div>
     <div className='flex'>
-    <Card
-    image={"/images/random.jpeg"}
-    name={"RANDOM"}
-    content={"this card will be genetating random recepies in the card so ya this is a card sdysdfhdfhdrejertsejyerjyethestetyheyeye"}
-    />
+      {
+        cards.map(card =>(
+          <Card
+          image={card.image}
+          name={card.name}
+          content={card.content}
+          />
+        ))
+      }
+    
     </div>
     </>
   )
