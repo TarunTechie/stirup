@@ -11,6 +11,7 @@ export default function Features()
         <h1 className='font-sill text-maron'>Delicious</h1>
         </div>
     </div>
+    <div className='flex justify-center gap-12'>
     {cards.map(card =>(
           <Card
           image={card.image}
@@ -19,5 +20,6 @@ export default function Features()
           />
         ))
       }
+      </div>
     </>
 }

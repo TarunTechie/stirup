@@ -2,7 +2,6 @@ import './App.css'
 import './index.css'
 import Top from './components/top'
 import Features from './components/features'
-
 function App() {
   return (
     <>
