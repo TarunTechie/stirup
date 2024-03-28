@@ -8,6 +8,8 @@ export default {
     extend: {
       fontFamily:{
         heading:['heading'],
+        nat:['nat'],
+        sill:['sill'],
       },
       colors:{
         'orange':'#FF670E',
