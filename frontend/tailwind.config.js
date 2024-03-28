@@ -15,6 +15,7 @@ export default {
         'orange':'#FF670E',
         'peach':'#FDE4CE',
         'maron':'#4E070C',
+        'olive':'#263A29',
       },
     },
   },
