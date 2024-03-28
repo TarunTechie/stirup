@@ -6,7 +6,9 @@ function App() {
   return (
     <>
     <Top/>
-
+    <div>
+      <img src="/images/frontpage.png" alt="" srcset="" />
+    </div>
     <div className='flex'>
     <Card
     image={"/images/random.jpeg"}
