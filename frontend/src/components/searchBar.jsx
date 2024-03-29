@@ -1,10 +1,25 @@
-export default function SearchBar()
+
+
+
+
+
+
+
+export default function SerachBar()
 {
-    return(     <div class="flex mt-20 pt-2 relative mx-auto justify-center items-center">
-    <input class="border-2 border-maron bg-white h-10 w-4/6 px-5 pr-16 rounded-3xl text-2xl tracking-widest focus:outline-orange"
+  function search()
+  {
+
+  }
+  return(
+    <div className="flex justify-center">
+    <div className="flex h-fit w-5/6 bg-white rounded-3xl m-10 justify-between border-2 border-maron focus:outline-orange">
+      <input class="h-10 w-5/6 p-8 rounded-3xl text-2xl tracking-widest focus:outline-none"
       type="search" name="search" placeholder="Find a dish or ingridient"/>
-    <button type="submit" class="absolute right-0 top-0 mt-5 mr-4">
-    <img src="\icons\spoon-svgrepo-com.svg" alt="" srcset="" className="w-10 h-10"/>
-    </button>
-  </div>)
+      <button onClick={search()}>
+        <img src="\icons\spoon-svgrepo-com.svg" alt="" srcset="" className="h-10" />
+      </button>
+    </div>
+    </div>
+  )
 }
