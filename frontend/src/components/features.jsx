@@ -3,7 +3,7 @@ import cards from '../constants/mianScreen'
 export default function Features()
 {
     return <>
-    <div className='flex justify-center gap-10'>
+    <div className='flex justify-center gap-10 mb-10 mt-16'>
         <h1 className='font-heading text-maron text-6xl'>Unlock The Flavors</h1>
         <div className='flex mt-2 text-5xl'>
         <h1 className='font-sill text-orange'>Yummy.</h1>

@@ -5,9 +5,9 @@ function Card({image,name,content})
         <div className="rounded-xl w-fit bg-orange shaeff">
             <img src={image} alt="" srcset="" className="h-96 w-86 rounded-xl"/>
         </div>
-        <div className="bg-orange p-2 rounded-lg z-1  text-white text-center font-extrabold absolute crdtext shaeff">
+        <div className="bg-orange p-2 rounded-lg z-1 text-white text-center text-clip font-extrabold absolute crdtext shaeff ">
             <h1 className="crdname">{name}</h1>
-            <p className="content font-normal scroll-smooth">{content}</p>
+            <p className="content font-normal overflow-auto">{content}</p>
         </div>
         </div>
     )
