@@ -28,26 +28,30 @@ function SearchBar(){
     setfood(event.target.value)
   }
   return(    
+  <div>
+
   <div className="flex mt-20 p-4 relative mx-auto justify-center">
   <div className="flex w-4/6 p-4 bg-white border-maron border-2 rounded-3xl justify-around  focus:outline-orange">
   <input className="bg-white h-10 w-4/6 px-5 pr-16 rounded-3xl text-2xl tracking-widest focus:outline-none"
-    type="search" name="search" placeholder="Find a dish or ingridient" onChange={change}/>
-    
-          
+    type="search" name="search" placeholder="Find a dish or ingridient" onChange={change}/>       
   <button onClick={send}>
   <img src="\icons\spoon-svgrepo-com.svg" alt="" srcset="" className="w-10 h-10 hover:shadow-2xl"/>
   </button>
   </div>
+  </div>
 
-<div className="relative w-5/6 top-0 border-maron bg-white rounded-lg">
-    <ul>
+<div className="flex justify-center">
+<div className="p-4 rounded-xl text-2xl w-4/6 border-5 border-maron bg-white">
+    <ul className="grid gap-4">
         {recipe.map((suggestion) => (
-          <li key={suggestion.id} className="hover:bg-slate-300 ">
+          <li key={suggestion.id} className="p-4 rounded-xl hover:underline decoration-orange decoration-2 underline-offset-[10px] hover:animate-bounce">
             {suggestion.name}
           </li>
         ))}
       </ul>
-    </div>
+  </div>
+  </div>
+
   </div>
 )
 
