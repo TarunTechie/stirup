@@ -22,10 +22,11 @@ export default function Bigcard()
         </div>
         <div className='grid align-middle text-center'>
         <h1 className='text-5xl  text-maron'>INGRIDIENTS</h1>
+
         <ul className='text-black'>
-            {recipes[0].extendedIngredients.map((ingrident,index)=>{
-                <l1 key={index}>{ingrident.name}</l1>
-            })}
+            {recipes[0].extendedIngredients.map((ingrident,index)=>(
+                <l1 key={index} >{ingrident.name} - {ingrident.amount} { ingrident.unit} </l1>
+            ))}
         </ul>
         
         </div>
