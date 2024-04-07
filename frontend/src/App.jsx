@@ -4,6 +4,7 @@ import Top from './components/top'
 import Features from './components/features'
 import SearchBar from './components/searchBar'
 import Favs from './components/favs'
+import Bigcard from './components/bigCard'
 function App() {
   return (
     <>
@@ -14,6 +15,7 @@ function App() {
     <Features/>
     <SearchBar/>
     <Favs/>
+    <Bigcard/>
     </>
   )
 }

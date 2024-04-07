@@ -1,5 +1,4 @@
 const recipes =[
-    {
         {
             "vegetarian": false,
             "vegan": false,
