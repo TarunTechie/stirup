@@ -1,14 +1,28 @@
 import recipes from '../constants/recipes'
+import React,{useState,useEffect} from "react"
+
+
 export default function Bigcard()
 {
+    const [vis,setvis]=useState('grid')
+    function handleCancel(){
+        if(vis=='grid')
+        {
+          setvis('hidden')
+        }
+        else
+        {
+          setvis('grid')
+        }
+    }
     return(
     
-    <div className='grid bg-white w-5/6 h-fit border-4 rounded-xl border-orange p-10'>
+    <div className={`${vis}  bg-white w-5/6 h-fit border-4 rounded-xl border-orange p-10`}>
 
         <div className='flex justify-between mb-10'>
         <button><span><img className="w-10 h-10" src="/icons/heart.svg"/></span></button>
         <h1 className='text-center text-5xl font-nat text-orange'>{recipes[0].title}</h1>
-        <button><span><img src="/icons/cross.svg" className="w-8 h-8"/></span></button>
+        <button on onClick={handleCancel}><span><img src="/icons/cross.svg" className="w-8 h-8"/></span></button>
         </div>
 
     <div className='flex justify-around'>

@@ -1,6 +1,6 @@
 export default function Top()
 {
-    return<header className="flex bg-peach/95 justify-between h-32 items-center fixed z-10 w-screen">
+    return<header className="flex bg-peach/95 justify-between h-24 items-center fixed z-10 w-screen">
         <img src="/fulllogo.svg" alt="" srcset="" className="w-72"/>
         <div className="flex gap-44 text-2xl font-extrabold text-maron">
         <h1>Home</h1>
