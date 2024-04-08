@@ -10,6 +10,7 @@ export default {
         heading:['heading'],
         nat:['nat'],
         sill:['sill'],
+        tego:['tego'],
       },
       colors:{
         'orange':'#FF670E',

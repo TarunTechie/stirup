@@ -3,10 +3,10 @@ import { useEffect } from "react"
 function Procard({image,heading,content})
 { 
     return(
-        <div className="grid  bg-white m-5 rounded-xl  max-h-96 max-w-80 border-4 border-maron no-scrollbar relative ">
+        <div className="grid  bg-white m-5 rounded-xl  h-[30rem] max-w-80 border-2 border-maron no-scrollbar relative ">
             <div className="flex justify-end">
-            <img src="/icons/heart.svg" className="absolute w-10 h-10 m-2 object-top-right fill"/>
-            <img src={image}/>
+            <img src="/icons/heart.svg" className="absolute  h-6 m-2 object-top-right fill"/>
+            <img src={image} className="rounded-xl"/>
             </div>
             <div className="flex justify-end ">
             <img src="/icons/heart.svg" className="  object-top-right  w-7 h-7 "/>    

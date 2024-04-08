@@ -25,6 +25,10 @@
     font-family: 'nat';
     src:url('/fonts/NatureBeautyPersonalUse-9Y2DK.ttf') format('truetype');
 }
+@font-face {
+    font-family: 'tego';
+    src:url('/fonts/NewTegomin-Regular.ttf') format('truetype');
+}
 body
 {
     background-color:#F2E3DB;
