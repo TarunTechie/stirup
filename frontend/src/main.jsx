@@ -6,12 +6,21 @@ import {
   RouterProvider,
 } from "react-router-dom";
 import "./index.css";
+import HomeScreen from "./pages/HomeScreen";
+import LoginScreen from "./pages/LoginScreen";
+ 
 
 const router = createBrowserRouter([
   {
     path: "/",
-    element: <App/>,
+    element: <HomeScreen/>,
+    errorElement:<div>404 NOT FOUND</div>,
   },
+  {
+    path:"/login",
+    element:<LoginScreen />,
+  },
+
 ]);
 
 ReactDOM.createRoot(document.getElementById("root")).render(
