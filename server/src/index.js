@@ -19,12 +19,13 @@ app.post('/login',(req,res)=>{
     const {email,password}=req.body;
     UserModel.findOne({email:email})
     .then(user=>{
-        console.log(email)
+        const {name,email}=user
         if(user){
             if(user.password === password){
-                res.json("Success")
+                res.json({name,email})
             }else{
                 res.json("Password was incorrect")
+   
             }
         }else{
             res.json("User not found")
