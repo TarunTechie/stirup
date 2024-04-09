@@ -8,6 +8,7 @@ import {
 import "./index.css";
 import HomeScreen from "./pages/HomeScreen";
 import LoginScreen from "./pages/LoginScreen";
+import RegisterScreen from "./pages/RegisterScreen";
  
 
 const router = createBrowserRouter([
@@ -20,6 +21,10 @@ const router = createBrowserRouter([
     path:"/login",
     element:<LoginScreen />,
   },
+  {
+    path:"/register",
+    element:<RegisterScreen/>
+  }
 
 ]);
 

@@ -1,6 +1,6 @@
 import Top from "../components/top";
 import SearchBar from "../components/searchBar";
-import Favs from "../components/favs";
+import Favs from "../actions/favs";
 import Bigcard from "../components/bigCard";
 import Card from "../components/card";
 import cards from "../constants/mianScreen";
