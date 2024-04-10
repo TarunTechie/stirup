@@ -8,7 +8,7 @@ function RegisterScreen() {
     name: "",
     password: "",
     confirmPassword: "",
-    email: ""
+    email: "",
   });
 
   const [submitted, setSubmitted] = useState(false);
@@ -31,7 +31,11 @@ function RegisterScreen() {
     setSubmitted(true);
     ourApi.post('register',values)
     .then(result => {console.log(result)
-    nav('/login')})
+    if(result.data.name){
+      nav('/')
+      localStorage.setItem('userInfo', JSON.stringify(result.data))
+    }
+  })
     .catch(err => console.log(err))
   
   };
