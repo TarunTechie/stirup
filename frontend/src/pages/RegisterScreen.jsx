@@ -61,10 +61,15 @@ function RegisterScreen() {
   };
 
   return (
-    <div className="form-container">
-      <form className="register-form" onSubmit={handleSubmit}>
+    <div className="flex justify-between  form-container w-screen h-screen  bg-[#FDE4CE]">
+      <form className="register-form grid content-center justify-items-center gap-10 p-10" onSubmit={handleSubmit}>
+      <img src='/fulllogo.svg' className='max-w-sm'/>
+      <div className='flex justify-between gap-10'>
+        <Link to="/login"><h1 className='text-xl font-bold'>LOGIN</h1></Link>
+        <h1 className='text-xl font-bold underline'>REGISTER</h1>
+      </div>
         <input
-          className="form-field"
+          className="form-field field"
           type="text"
           placeholder="First Name"
           name="name"
@@ -76,7 +81,7 @@ function RegisterScreen() {
         )}
 
         <input
-          className="form-field"
+          className="form-field field"
           type="email"
           placeholder="Email"
           name="email"
@@ -88,7 +93,7 @@ function RegisterScreen() {
         )}
 
         <input
-          className="form-field"
+          className="form-field field"
           type="password"
           placeholder="Password"
           name="password"
@@ -100,7 +105,7 @@ function RegisterScreen() {
         )}
 
         <input
-          className="form-field"
+          className="form-field field "
           type="password"
           placeholder="Confirm Password"
           name="confirmPassword"
@@ -111,11 +116,21 @@ function RegisterScreen() {
           <span className="error-message">{errors.confirmPassword}</span>
         )}
 
-        <button className="form-field" type="submit">
+        <button className="form-field lrbtn" type="submit">
           Register
         </button>
         <Link to='/login'><p>Already have an account?</p></Link>
       </form>
+      <div className='grid place-items-end place-content-start'>
+        <img src='/images/register.png' className='max-w-md'/>
+        <ul className='p-8 font-semibold tracking-wide bg-[#fcd8bf] rounded-xl'>
+        <li className='p-1'/>Stir Up is an AI recipe search engine that lets you search by ingredients 
+        <li className='p-1'/>30k+ Recipes at your fingertips
+        <li className='p-1'/>Recipes at your customized level
+        <li className='p-1'/>Helps you organize, share and plan your meals 
+        <li className='p-1'/>Generates personalizedrecipestailored to your unique tastes and dietary preferences.
+        </ul>
+      </div>
     </div>
   );
 }

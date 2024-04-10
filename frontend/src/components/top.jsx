@@ -24,11 +24,11 @@ export default function Top()
         </div>
         {user ? (
   
-            <button className=" my-auto mr-8 h-10 w-32 text-xl font-extrabold bg-white text-orange border-2 border-orange rounded-xl hover:bg-orange hover:text-white" onClick={handleLogout}>LOGOUT</button>
+            <button className="btn" onClick={handleLogout}>LOGOUT</button>
 
         ):(
             <Link to="/login">
-            <button className=" my-auto mr-8 h-10 w-32 text-xl font-extrabold bg-white text-orange border-2 border-orange rounded-xl hover:bg-orange hover:text-white">LOGIN</button>
+            <button className="btn">LOGIN</button>
             </Link>
         )}
         

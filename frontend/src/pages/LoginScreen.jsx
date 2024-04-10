@@ -2,7 +2,6 @@ import React, { useState } from 'react';
 import ourApi from '../constants/ourapi';
 import {useNavigate,Link} from 'react-router-dom'
 
-
 function LoginScreen() {
   const [values, setValues] = useState({
     email: "",
@@ -40,11 +39,19 @@ function LoginScreen() {
   };
 
   return (
-    <div className="form-container">
-      <form className="login-form" onSubmit={handleSubmit}>
+    <div className="flex justify-between  form-container h-screen overflow-hidden bg-[#FDE4CE]">
+      <div className='grid justify-between'>
+        <img src='/fulllogo.svg' className='max-w-xl'/>
+        <img src='/images/login.png' className='max-w-xl'/>
+      </div>
+      <form className="login-form grid content-center justify-items-center gap-10 p-10" onSubmit={handleSubmit}>
+      <div className='flex justify-between gap-10'>
+        <h1 className='text-xl font-bold underline underline-offset-2'>LOGIN</h1>
+        <Link to="/register"><h1 className='text-xl font-bold'>REGISTER</h1></Link>
+      </div>
 
         <input
-          className="form-field"
+          className="form-field field"
           type="email"
           placeholder="Email"
           name="email"
@@ -53,21 +60,23 @@ function LoginScreen() {
         />
 
         <input
-          className="form-field"
+          className="form-field field"
           type="password"
           placeholder="Password"
           name="password"
           value={values.password}
           onChange={handleInputChange}
         />
-        <button className="form-field" type="submit">
+        <button className="form-field lrbtn" type="submit">
           Login
         </button>
+
         {submitted && errors &&(
           <span className="error-message">{errors}</span>
         )}
       </form>
-    </div>
+      </div>
+
   );
 }
 
