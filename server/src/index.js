@@ -9,10 +9,26 @@ app.use(cors())
 
 mongo.connect("mongodb://localhost:27017/User")
 
+const crypt=require('bcrypt')
+
+async function decrypt(password,user_password){
+
+        const ispass=await crypt.compare(password,user_password)
+        return ispass
+
+}
+
 app.post('/register',(req,res)=>{
-    UserModel.create(req.body)
-    .then(user => res.json(user))
-    .catch(err => res.json(err))
+    const {email}=req.body
+    if(UserModel.findOne({email:email})){
+        res.json("Email already resgistered")
+    }else{
+        UserModel.create(req.body)
+        .then(user => {
+            const {name,email}=user
+            res.json({name,email})})
+        .catch(err => res.json(err))
+    }
 })
 
 app.post('/login',(req,res)=>{
