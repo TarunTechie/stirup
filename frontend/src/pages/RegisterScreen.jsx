@@ -63,7 +63,7 @@ function RegisterScreen() {
 
   return (
     <div className="flex justify-between  form-container w-screen h-screen  bg-[#FDE4CE]">
-      <form className="register-form grid content-center justify-items-center p-10" onSubmit={handleSubmit}>
+      <form className="register-form grid content-center justify-items-center p-10 mx-auto" onSubmit={handleSubmit}>
       <img src='/fulllogo.svg' className='max-w-sm'/>
       <div className='flex justify-between gap-10'>
         <Link to="/login"><h1 className='text-xl font-extrabold text-maron'>LOGIN</h1></Link>
@@ -122,9 +122,9 @@ function RegisterScreen() {
         </button>
         <Link to='/login'><p>Already have an account?</p></Link>
       </form>
-      <div className='grid place-items-end place-content-start'>
+      <div className='grid place-items-end place-content-start '>
         <img src='/images/register.png' className='max-w-md'/>
-        <ul className='p-8 font-semibold tracking-wide bg-[#fcd8bf] rounded-xl'>
+        <ul className='p-8 font-semibold tracking-wide bg-[#fcd8bf] rounded-xl mt-7'>
         <li className='p-1'/>Stir Up is an AI recipe search engine that lets you search by ingredients 
         <li className='p-1'/>30k+ Recipes at your fingertips
         <li className='p-1'/>Recipes at your customized level
