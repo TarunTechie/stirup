@@ -19,11 +19,16 @@ async function decrypt(password,user_password){
 }
 
 app.post('/register',(req,res)=>{
-    UserModel.create(req.body)
-    .then(user => {
-        const {name,email}=user
-        res.json({name,email})})
-    .catch(err => res.json(err))
+    const {email}=req.body
+    if(UserModel.findOne({email:email})){
+        res.json("Email already resgistered")
+    }else{
+        UserModel.create(req.body)
+        .then(user => {
+            const {name,email}=user
+            res.json({name,email})})
+        .catch(err => res.json(err))
+    }
 })
 
 app.post('/login',(req,res)=>{

@@ -28,15 +28,21 @@ function RegisterScreen() {
   const handleSubmit = (e) => {
     e.preventDefault();
     validateForm();
-    setSubmitted(true);
-    ourApi.post('register',values)
-    .then(result => {console.log(result)
-    if(result.data.name){
-      nav('/')
-      localStorage.setItem('userInfo', JSON.stringify(result.data))
+    if(valid){
+      setSubmitted(true);
+      ourApi.post('register',values)
+      .then(result => {console.log(result)
+      if(result.data.name){
+        nav('/')
+        localStorage.setItem('userInfo', JSON.stringify(result.data))
+      }else{
+        errors.user="Email already resgistered"
+        setErrors(errors)
+      }
+    })
+      .catch(err => console.log(err))
     }
-  })
-    .catch(err => console.log(err))
+
   
   };
 
@@ -45,17 +51,17 @@ function RegisterScreen() {
     if (!values.name) {
       errors.name = 'Please enter a first name';
     }
-    if (!values.email) {
+    else if (!values.email) {
       errors.email = 'Please enter an email address';
     } else if (!/\S+@\S+\.\S+/.test(values.email)) {
       errors.email = 'Please enter a valid email address';
     }
-    if (!values.password) {
+    else if (!values.password) {
       errors.password = 'Please enter a password';
     } else if (values.password.length < 8) {
       errors.password = 'Password must be at least 8 characters long';
     }
-    if (!values.confirmPassword) {
+    else if (!values.confirmPassword) {
       errors.confirmPassword = 'Please confirm your password';
     } else if (values.password !== values.confirmPassword) {
       errors.confirmPassword = 'Passwords do not match';
@@ -114,7 +120,9 @@ function RegisterScreen() {
         {submitted && errors.confirmPassword && (
           <span className="error-message">{errors.confirmPassword}</span>
         )}
-
+        {submitted && errors.user && (
+          <span className="error-message">{errors.user}</span>
+        )}
         <button className="form-field" type="submit">
           Register
         </button>
