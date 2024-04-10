@@ -4,11 +4,12 @@ import {useNavigate,Link} from 'react-router-dom'
 
 
 function RegisterScreen() {
+  const [spa,setsap]=useState(10)
   const [values, setValues] = useState({
     name: "",
     password: "",
     confirmPassword: "",
-    email: "",
+    email: ""
   });
 
   const [submitted, setSubmitted] = useState(false);
@@ -28,21 +29,11 @@ function RegisterScreen() {
   const handleSubmit = (e) => {
     e.preventDefault();
     validateForm();
-    if(valid){
-      setSubmitted(true);
-      ourApi.post('register',values)
-      .then(result => {console.log(result)
-      if(result.data.name){
-        nav('/')
-        localStorage.setItem('userInfo', JSON.stringify(result.data))
-      }else{
-        errors.user="Email already resgistered"
-        setErrors(errors)
-      }
-    })
-      .catch(err => console.log(err))
-    }
-
+    setSubmitted(true);
+    ourApi.post('register',values)
+    .then(result => {console.log(result)
+    nav('/login')})
+    .catch(err => console.log(err))
   
   };
 
@@ -51,17 +42,17 @@ function RegisterScreen() {
     if (!values.name) {
       errors.name = 'Please enter a first name';
     }
-    else if (!values.email) {
+    if (!values.email) {
       errors.email = 'Please enter an email address';
     } else if (!/\S+@\S+\.\S+/.test(values.email)) {
       errors.email = 'Please enter a valid email address';
     }
-    else if (!values.password) {
+    if (!values.password) {
       errors.password = 'Please enter a password';
     } else if (values.password.length < 8) {
       errors.password = 'Password must be at least 8 characters long';
     }
-    else if (!values.confirmPassword) {
+    if (!values.confirmPassword) {
       errors.confirmPassword = 'Please confirm your password';
     } else if (values.password !== values.confirmPassword) {
       errors.confirmPassword = 'Passwords do not match';
@@ -72,11 +63,11 @@ function RegisterScreen() {
 
   return (
     <div className="flex justify-between  form-container w-screen h-screen  bg-[#FDE4CE]">
-      <form className="register-form grid content-center justify-items-center gap-10 p-10" onSubmit={handleSubmit}>
+      <form className="register-form grid content-center justify-items-center p-10" onSubmit={handleSubmit}>
       <img src='/fulllogo.svg' className='max-w-sm'/>
       <div className='flex justify-between gap-10'>
-        <Link to="/login"><h1 className='text-xl font-bold'>LOGIN</h1></Link>
-        <h1 className='text-xl font-bold underline'>REGISTER</h1>
+        <Link to="/login"><h1 className='text-xl font-extrabold text-maron'>LOGIN</h1></Link>
+        <h1 className='text-xl font-extrabold text-maron underline underline-offset-8'>REGISTER</h1>
       </div>
         <input
           className="form-field field"
@@ -125,10 +116,8 @@ function RegisterScreen() {
         {submitted && errors.confirmPassword && (
           <span className="error-message">{errors.confirmPassword}</span>
         )}
-        {submitted && errors.user && (
-          <span className="error-message">{errors.user}</span>
-        )}
-        <button className="form-field" type="submit">
+
+        <button className="form-field lrbtn" type="submit">
           Register
         </button>
         <Link to='/login'><p>Already have an account?</p></Link>
