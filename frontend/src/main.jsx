@@ -9,7 +9,10 @@ import "./index.css";
 import HomeScreen from "./pages/HomeScreen";
 import LoginScreen from "./pages/LoginScreen";
 import RegisterScreen from "./pages/RegisterScreen";
- 
+import CameraScreen from "./pages/CameraScreen";
+import IngredientsScreen from "./pages/IngredientsScreen";
+import NutritionScreen from "./pages/NutritionScreen";
+import RandomScreen from "./pages/RandomScreen";
 
 const router = createBrowserRouter([
   {
@@ -24,6 +27,22 @@ const router = createBrowserRouter([
   {
     path:"/register",
     element:<RegisterScreen/>
+  },
+  {
+    path:"/camera",
+    element:<CameraScreen/>
+  },
+  {
+    path:"/ingredients",
+    element:<IngredientsScreen/>
+  },
+  {
+    path:"/nutrition",
+    element:<NutritionScreen/>
+  },
+  {
+    path:"/random",
+    element:<RandomScreen/>
   }
 
 ]);
