@@ -1,7 +1,7 @@
 function Bottom()
 {
     return(<footer className="grid justify-center bg-[#492821] text-white mt-10">
-    <img src="/fulllogo.svg" alt="" srcset="" className="max-w-sm mx-auto"/>
+    <img src="/fulllogo.svg" alt="" srcset="" className="max-w-sm mx-auto p-8"/>
     <div className="grid grid-cols-3 gap-10 w-screen px-10 text-2xl">
     <span className="flex gap-10 border-b-2 max-w-fit"><h1>Recipe Glossary</h1> <img src="/icons/arrow.svg"/></span>
     <span className="flex gap-10 border-b-2 max-w-fit"><h1>Privacy Policy</h1> <img src="/icons/arrow.svg"/></span>

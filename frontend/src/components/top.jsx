@@ -9,7 +9,7 @@ export default function Top()
         setlogin(true)
     }
     const user=localStorage.getItem('userInfo')
-    return<header className="flex bg-peach/95 justify-between h-24 items-center fixed z-10 w-screen">
+    return<header className="flex bg-peach/95 px-2 justify-between h-24 items-center fixed z-10 w-screen">
         <Link to="/">
         <img src="/fulllogo.svg" alt="" srcset="" className="w-72"/>
         </Link>

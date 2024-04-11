@@ -3,14 +3,12 @@
 @tailwind utilities;
 
 @layer utilities {
-      /* Hide scrollbar for Chrome, Safari and Opera */
       .no-scrollbar::-webkit-scrollbar {
           display: none;
       }
-     /* Hide scrollbar for IE, Edge and Firefox */
       .no-scrollbar {
-          -ms-overflow-style: none;  /* IE and Edge */
-          scrollbar-width: none;  /* Firefox */
+          -ms-overflow-style: none;  
+          scrollbar-width: none;
 }
 }
 @font-face{
@@ -97,4 +95,12 @@ body
     color: red;
     margin:0px;
     padding: 0px;
+}
+.cambtn
+{
+    @apply flex items-center rounded-xl border-2 border-orange px-10 font-extrabold text-orange gap-4 text-lg
+}
+.cambtn:hover #sv
+{
+    @apply fill-white
 }
