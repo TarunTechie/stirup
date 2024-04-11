@@ -5,6 +5,7 @@ import Bigcard from "../components/bigCard";
 import Card from "../components/card";
 import cards from "../constants/mianScreen";
 import Bottom from "../components/bottom";
+import News from "../components/news";
 function HomeScreen() {
   return (
     <>
@@ -32,6 +33,7 @@ function HomeScreen() {
       </div>
     <SearchBar/>
     <Favs/>
+    <News/>
     <Bottom/>  
     </>
   )
