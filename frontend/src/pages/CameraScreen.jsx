@@ -28,12 +28,7 @@ function CameraScreen (){
       updatedIngredients[index] = event.target.value;
       setIngredients(updatedIngredients);
     };
-    const handleClear = (index) => {
-        const updatedIngredients = [...ingredients]
-        updatedIngredients[index] = '';
-        setIngredients(updatedIngredients);
 
-    };
 return(
     <div className="bg-white">
     <Top />
@@ -46,13 +41,13 @@ return(
     {ingredients.map((ingredient, index) => (
          <div key={index}>
          <input
-           type="text"
+           type="search"
            value={ingredient}
            onChange={(event) => handleInputChange(index, event)}
            placeholder="Enter ingredient"
          />
          <button onClick={() => handleDeleteInput(index)}><span><img src="/icons/cross.svg" className="w-8 h-8"/></span></button>
-         <button onClick={()=> handleClear(index)}>Clear</button>
+
          </div>
           
     ))}
