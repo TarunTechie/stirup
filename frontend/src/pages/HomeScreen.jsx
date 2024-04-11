@@ -4,6 +4,7 @@ import Favs from "../actions/favs";
 import Bigcard from "../components/bigCard";
 import Card from "../components/card";
 import cards from "../constants/mianScreen";
+import Bottom from "../components/bottom";
 import { Link } from "react-router-dom";
 
 function HomeScreen() {
@@ -35,7 +36,7 @@ function HomeScreen() {
       </div>
     <SearchBar/>
     <Favs/>
-    <Bigcard/>
+    <Bottom/>  
     </>
   )
 }
