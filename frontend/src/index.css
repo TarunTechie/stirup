@@ -86,11 +86,11 @@ body
 }
 .btn
 {
-    @apply my-auto mr-8 h-10 w-32 text-xl font-extrabold bg-white text-orange border-2 border-orange rounded-xl hover:bg-orange hover:text-white
+    @apply w-fit p-2 text-xl font-extrabold bg-white text-orange border-2 border-orange rounded-xl hover:bg-orange hover:text-white
 }
 .lrbtn
 {
-    @apply my-auto mt-8 h-10 w-5/6 text-xl font-extrabold bg-maron text-white border-2 border-maron hover:bg-maron hover:text-white
+    @apply h-10 w-5/6 text-xl font-extrabold bg-maron text-white border-2 border-maron hover:bg-white hover:text-maron
 }
 .error-message
 {

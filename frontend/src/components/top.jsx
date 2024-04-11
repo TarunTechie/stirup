@@ -24,11 +24,11 @@ export default function Top()
         </div>
         {user ? (
   
-            <button className="btn" onClick={handleLogout}>LOGOUT</button>
+            <button className="mr-10 btn" onClick={handleLogout}>LOGOUT</button>
 
         ):(
             <Link to="/login">
-            <button className="btn">LOGIN</button>
+            <button className="mr-10 btn">LOGIN</button>
             </Link>
         )}
         

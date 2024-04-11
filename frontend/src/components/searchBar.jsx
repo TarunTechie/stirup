@@ -54,7 +54,7 @@ function SearchBar(){
   <input className="bg-white h-10 w-4/6 px-5 pr-16 rounded-3xl text-2xl tracking-widest focus:outline-none"
     type="search" name="search" placeholder="Find a dish or ingridient" onKeyPress={handleKeyPress} onChange={change} />       
   <button onClick={send}>
-  <img src="\icons\spoon-svgrepo-com.svg" alt="" srcset="" className="w-10 h-10 hover:shadow-2xl"/>
+  <img src="\icons\spoon.svg" alt="" srcset="" className="w-10 h-10 hover:shadow-2xl"/>
   </button>
   </div>
   </div>

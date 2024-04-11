@@ -33,22 +33,29 @@ return(
     <div >
         <img src="/images/pagebg.jpg" className="w-screen" />
     </div>
-    <h1 className="font-heading text-7xl ml-24 underline decoration-orange decoration-2 underline-offset-[12px] ">Snap and Cook</h1>
-    <h1 className="font-light text-5xl ml-36">Ingredients</h1>
-    <button className="btn" onClick={handleAddInput}>Add </button>
-    {ingredients.map((ingredient, index) => (
-         <div key={index}>
-         <input
-           type="text"
-           value={ingredient}
-           onChange={(event) => handleInputChange(index, event)}
-           placeholder="Enter ingredient"
-         />
-         <button onClick={() => handleDeleteInput(index)}><span><img src="/icons/cross.svg" className="w-8 h-8"/></span></button>
-         </div>
-          
+    <div className="ml-4 gap-10">
+    <h1 className="font-heading text-7xl ml-auto underline decoration-orange decoration-1 underline-offset-[12px] ">Snap and Cook</h1>
+    <h1 className="font-light text-5xl font-tego pt-4">Ingredients</h1>
+    <div className="pt-10">
+      <button className="btn flex" onClick={handleAddInput}>Add<img src="/icons/camadd.svg" className="w-8 h-8 mx-2"/></button>
+      {ingredients.map((ingredient, index) => (
+          <div key={index} className="flex justify-between bg-peach w-[55%] border-2 border-black p-2 m-4">
+          <input
+            type="text"
+            className="bg-transparent w-full focus: outline-none"
+            value={ingredient}
+            onChange={(event) => handleInputChange(index, event)}
+            placeholder="Enter ingredient"
+          />
+          <button onClick={() => handleDeleteInput(index)}><span><img src="/icons/cross.svg" className="w-4 h-4"/></span></button>
+          </div>
     ))}
-    <button className="lrbtn">Search Recipe</button>
+<button className="flex btn">
+      <h1>Search Recipe</h1>
+      <img src="/icons/spoon.svg" className="w-8 h-8" alt="" srcset="" />
+</button>
+    </div>
+</div>
     <Bottom />
     </div>
 )
