@@ -5,6 +5,8 @@ import Bigcard from "../components/bigCard";
 import Card from "../components/card";
 import cards from "../constants/mianScreen";
 import Bottom from "../components/bottom";
+import { Link } from "react-router-dom";
+
 import News from "../components/news";
 function HomeScreen() {
   return (
@@ -23,11 +25,13 @@ function HomeScreen() {
     </div>
     <div className='flex justify-center gap-12'>
     {cards.map(card =>(
+          <Link to={`${card.link}`}>
           <Card
           image={card.image}
           name={card.name}
           content={card.content}
           />
+          </Link>
         ))
       }
       </div>
