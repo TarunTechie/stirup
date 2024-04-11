@@ -4,6 +4,7 @@ import { useState } from "react";
 
 function CameraScreen (){
     const [ingredients, setIngredients] = useState(['']);
+    
   
     const handleAddInput = () => {
       const Ingredients = [...ingredients];
@@ -27,6 +28,12 @@ function CameraScreen (){
       updatedIngredients[index] = event.target.value;
       setIngredients(updatedIngredients);
     };
+    const handleClear = (index) => {
+        const updatedIngredients = [...ingredients]
+        updatedIngredients[index] = '';
+        setIngredients(updatedIngredients);
+
+    };
 return(
     <div className="bg-white">
     <Top />
@@ -45,6 +52,7 @@ return(
            placeholder="Enter ingredient"
          />
          <button onClick={() => handleDeleteInput(index)}><span><img src="/icons/cross.svg" className="w-8 h-8"/></span></button>
+         <button onClick={()=> handleClear(index)}>Clear</button>
          </div>
           
     ))}
