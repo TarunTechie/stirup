@@ -4,6 +4,7 @@ import { useState } from "react";
 
 function CameraScreen (){
     const [ingredients, setIngredients] = useState(['']);
+    
   
     const handleAddInput = () => {
       const Ingredients = [...ingredients];
@@ -27,6 +28,7 @@ function CameraScreen (){
       updatedIngredients[index] = event.target.value;
       setIngredients(updatedIngredients);
     };
+
 return(
     <div className="bg-white">
     <Top />
