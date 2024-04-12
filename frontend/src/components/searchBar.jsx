@@ -1,5 +1,5 @@
 import React,{useState,useEffect} from "react"
-import axiosInstance from "../constants/spoon"
+import spoon from "../constants/spoon"
 
 function SearchBar(){
   const [food,setfood]=useState('')
@@ -10,7 +10,7 @@ function SearchBar(){
   {
     console.log(food)
     try{
-      const result=await axiosInstance.get('food/search',{params:{'query':food,'number':5}})
+      const result=await spoon.get('food/search',{params:{'query':food,'number':5}})
       setfoodrecipes(result.data.searchResults[0].results)
       setfoodingridents(result.data.searchResults[1].results)
 

@@ -2,11 +2,25 @@ import Top from "../components/top"
 import Bottom from "../components/bottom";
 import Logo from "../components/logo";
 import { useState } from "react";
+import spoon from "../constants/spoon";
+import ListCard from "../components/listCard";
 
 function CameraScreen (){
     const [ingredients, setIngredients] = useState(['']);
+    const [result,setResult]=useState([])
     
-  
+    async function getRecipe()
+    {
+      try {
+        const result=await spoon.get('recipes/findByIngredients',{params:{'ingredients':ingredients.toString(),'number':5}})
+        setResult(result.data)
+      } 
+      catch (error) {
+        console.log(error)
+      }
+      return result
+    }
+
     const handleAddInput = () => {
       const Ingredients = [...ingredients];
       if(Ingredients.length<6){
@@ -58,7 +72,7 @@ return(
           <button onClick={() => handleDeleteInput(index)}><span><img src="/icons/cross.svg" className="w-4 h-4"/></span></button>
           </div>
     ))}
-<button className="cambtn hover:bg-orange hover:text-white">
+<button onClick={getRecipe} className="cambtn hover:bg-orange hover:text-white">
       <h1>Search Recipe</h1>
       <svg width="40" height="65" viewBox="0 0 53 65" id="sv" fill="#FF670E" xmlns="http://www.w3.org/2000/svg">
 <path d="M11.5815 14.2351C10.7992 15.4113 10.3995 16.8179 10.3912 18.2696C10.3818 19.7219 10.7637 21.225 11.5608 22.6058C11.8635 23.1299 12.5342 23.3104 13.0593 23.0073C13.5833 22.7047 13.7634 22.033 13.4608 21.5089C12.858 20.4649 12.579 19.3416 12.5841 18.2836C12.591 17.2247 12.884 16.2368 13.407 15.4512C13.7422 14.9475 13.6069 14.2651 13.1032 13.9299C12.5967 13.594 11.9176 13.7309 11.5815 14.2351Z" fill="white"/>
@@ -67,6 +81,15 @@ return(
 </button>
     </div>
 </div>
+
+<div className="flex">
+      {result.map((recs)=>(
+        <ListCard
+        heading={recs.title}
+        image={recs.image}/>
+      ))}
+  </div>
+
     <Bottom />
     </div>
 )

@@ -1,6 +1,6 @@
 import { useEffect } from "react"
 
-function Procard({image,heading,content})
+function RecCard({image,heading,content})
 { 
     return(
         <div className="grid  bg-white m-5 rounded-xl  h-[30rem] max-w-80 border-2 border-maron no-scrollbar relative ">
@@ -17,4 +17,4 @@ function Procard({image,heading,content})
         </div>
     )
 }
-export default Procard
+export default RecCard
