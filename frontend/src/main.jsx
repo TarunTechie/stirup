@@ -45,8 +45,11 @@ const router = createBrowserRouter([
   {
     path:"/random",
     element:<RandomScreen/>
+  },
+  {
+    path:"/recipe",
+    element:<RecipeScreen/>
   }
-
 ]);
 
 ReactDOM.createRoot(document.getElementById("root")).render(

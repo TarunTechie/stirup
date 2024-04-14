@@ -2,40 +2,36 @@ import spoon from "../constants/spoon";
 import Top from "../components/top";
 import Bottom from "../components/bottom";
 import RecCard from "../components/recCard";
-import { useEffect } from "react";
+import recipes from "../constants/recipes";
+import { useEffect, useState } from "react";
 export default function RecipeScreen()
 {
-    const[food,setFood]=([])
+    const[food,setFood]=useState([])
     useEffect(()=>{getRecipes()},[])
     async function getRecipes()
     {
         try
         {
-            const result=await spoon.get('recipes/informationBulk',{params:{'ids':JSON.stringify(localStorage.getItem('recids'))}})
-            setFood(result.data)
+            // const result=await spoon.get('recipes/informationBulk',{params:{'ids':JSON.stringify(localStorage.getItem('recids'))}})
+            setFood(recipes)
+            console.log(recipes)
         }
         catch(error){
             console.error(error)
         }
-        finally{
-            logrec()
-        }
     }
-    function logrec()
-    {
-        console.log(food)
-    }
-    return(<div className="w-screen h-screen">
+    return(<div className="h-fit w-screen">
         <Top/>
-        <div className="flex justify-center my-6">
+        <div className="grid mt-20">
+        <h1 className="pgheading">Generated Recipes</h1>
+        <div className="grid grid-cols-3">
     {food.map((rec) =>(
           <RecCard
-          image={rec.image}
-          heading={rec.title}
-          content={rec.summary}
+            recipe={rec}
           />
         ))
       }
+    </div>
     </div>
         <Bottom/>
     </div>)

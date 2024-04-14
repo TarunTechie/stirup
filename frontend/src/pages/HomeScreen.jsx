@@ -15,7 +15,7 @@ function HomeScreen() {
       <img src="/images/frontpage.png" className='w-screen h-screen '/>
     </div>
     <div className='flex justify-center gap-10 mb-10 mt-16'>
-        <h1 className='font-heading text-maron text-6xl'>Unlock The Flavors</h1>
+        <h1 className='pgheading'>Unlock The Flavors</h1>
         <div className='flex mt-2 text-5xl'>
         <h1 className='font-sill text-orange'>Yummy.</h1>
         <h1 className='font-sill text-olive'>Tasty.</h1>
