@@ -49,6 +49,10 @@ const router = createBrowserRouter([
   {
     path:"/recipe",
     element:<RecipeScreen/>
+  },
+  {
+    path:"/show/:id",
+    element:<Bigcard/>
   }
 ]);
 

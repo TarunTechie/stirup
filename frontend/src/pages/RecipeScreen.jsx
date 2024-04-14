@@ -12,9 +12,9 @@ export default function RecipeScreen()
     {
         try
         {
-            // const result=await spoon.get('recipes/informationBulk',{params:{'ids':JSON.stringify(localStorage.getItem('recids'))}})
-            setFood(recipes)
-            console.log(recipes)
+            const result=await spoon.get('recipes/informationBulk',{params:{'ids':JSON.stringify(localStorage.getItem('recids'))},'includeNutrition':true})
+            setFood(result.data)
+            console.log(result.data)
         }
         catch(error){
             console.error(error)
@@ -22,8 +22,8 @@ export default function RecipeScreen()
     }
     return(<div className="h-fit w-screen">
         <Top/>
-        <div className="grid mt-20">
         <h1 className="pgheading">Generated Recipes</h1>
+        <div className="grid justify-center">
         <div className="grid grid-cols-3">
     {food.map((rec) =>(
           <RecCard

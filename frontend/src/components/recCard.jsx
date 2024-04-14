@@ -16,7 +16,7 @@ function RecCard({recipe})
         }
       };
     return(
-        <Link to ={`show/${recipe.id}`} >
+        <Link to ={`/show/${recipe.id}`} >
         
         <div className="grid  bg-white m-5 rounded-xl  h-[30rem] max-w-80 border-2 border-maron no-scrollbar relative p-2" >
             <div className="flex justify-end">
