@@ -1,7 +1,6 @@
 import Top from "../components/top";
 import SearchBar from "../components/searchBar";
 import Favs from "../actions/favs";
-import Bigcard from "../components/bigCard";
 import Card from "../components/card";
 import cards from "../constants/mianScreen";
 import Bottom from "../components/bottom";
@@ -27,6 +26,7 @@ function HomeScreen() {
     {cards.map(card =>(
           <Link to={`${card.link}`}>
           <Card
+          
           image={card.image}
           name={card.name}
           content={card.content}
