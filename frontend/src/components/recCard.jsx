@@ -5,11 +5,20 @@ import { Link } from "react-router-dom"
 function RecCard({recipe})
 
 { 
-    const jsonData = JSON.stringify(recipe);
+    const handleClick = () => {
+        try {
+     
+          const jsonString = JSON.stringify(recipe);
+          localStorage.setItem('bigcard', jsonString);
+          console.log('Data saved to localStorage');
+        } catch (error) {
+          console.error('Error saving data to localStorage:', error);
+        }
+      };
     return(
-        <Link to ={{ pathname: `show/${recipe.id}`, state: { jsonData } }}>
+        <Link to ={`show/${recipe.id}`} >
         
-        <div className="grid  bg-white m-5 rounded-xl  h-[30rem] max-w-80 border-2 border-maron no-scrollbar relative " >
+        <div className="grid  bg-white m-5 rounded-xl  h-[30rem] max-w-80 border-2 border-maron no-scrollbar relative " onClick={handleClick}>
             <div className="flex justify-end">
             <img src="/icons/heart.svg" className="absolute  h-6 m-2 object-top-right fill"/>
             <img src={recipe.image} className="rounded-xl"/>

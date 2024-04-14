@@ -2,18 +2,12 @@
 import React,{useState,useEffect} from "react"
 import Top from '../components/top'
 import Bottom from '../components/bottom'
-import { useParams } from 'react-router-dom'
 import spoon from '../constants/spoon'
-import { useLocation } from 'react-router-dom';
+
 
 
 export default function Bigcard()
 {
-    const location = useLocation();
-    const { jsonData } = location.state;
-    console.log(jsonData)
-    const { id } = useParams();
-
     const [recipe, setRecipe] = useState(null);
     const [vis,setvis]=useState('grid')
     const [loading, setLoading] = useState(true);
@@ -27,17 +21,17 @@ export default function Bigcard()
           setvis('grid')
         }
     }
-    async function send() {
+    function send() {
         try{
-            const result=await  spoon.get(`recipes/${id}/information?includeNutrition=true`)
-            console.log(result.data)
-            setRecipe(result.data)
-
+            const jsonString = localStorage.getItem('bigcard');
+            const parsedData = JSON.parse(jsonString);
+            setRecipe(parsedData)
+            console.log(recipe)
         }catch(error){
-            console.log(error)
-        } finally {
-            setLoading(false);
-          }
+            console.error('Error retrieving data from localStorage:', error);
+        }finally{
+            setLoading(false)
+        }
     }
     useEffect(()=>{
         send();
