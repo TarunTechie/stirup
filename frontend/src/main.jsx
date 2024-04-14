@@ -14,6 +14,7 @@ import IngredientsScreen from "./pages/IngredientsScreen";
 import NutritionScreen from "./pages/NutritionScreen";
 import RandomScreen from "./pages/RandomScreen";
 import RecipeScreen from "./pages/RecipeScreen";
+import Bigcard from "./pages/bigCard";
 
 const router = createBrowserRouter([
   {
@@ -44,10 +45,6 @@ const router = createBrowserRouter([
   {
     path:"/random",
     element:<RandomScreen/>
-  },
-  {
-    path:"/recipe",
-    element:<RecipeScreen/>
   }
 
 ]);

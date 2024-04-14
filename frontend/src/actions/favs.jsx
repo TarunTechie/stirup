@@ -10,9 +10,7 @@ export default function Favs()
     <div className="flex justify-center my-6">
     {recipes.map(recipe =>(
           <Reccard
-          image={recipe.image}
-          heading={recipe.title}
-          content={recipe.summary}
+          recipe={recipe}
           />
         ))
       }
