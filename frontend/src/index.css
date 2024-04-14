@@ -104,3 +104,7 @@ body
 {
     @apply fill-white
 }
+.pgheading
+{
+    @apply font-heading text-maron text-6xl
+}

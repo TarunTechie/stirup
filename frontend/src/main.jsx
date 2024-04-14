@@ -13,6 +13,7 @@ import CameraScreen from "./pages/CameraScreen";
 import IngredientsScreen from "./pages/IngredientsScreen";
 import NutritionScreen from "./pages/NutritionScreen";
 import RandomScreen from "./pages/RandomScreen";
+import RecipeScreen from "./pages/RecipeScreen";
 import Bigcard from "./pages/bigCard";
 
 const router = createBrowserRouter([
@@ -46,10 +47,9 @@ const router = createBrowserRouter([
     element:<RandomScreen/>
   },
   {
-    path:"/show/:id",
-    element:<Bigcard/>
+    path:"/recipe",
+    element:<RecipeScreen/>
   }
-
 ]);
 
 ReactDOM.createRoot(document.getElementById("root")).render(
