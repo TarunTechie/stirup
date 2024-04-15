@@ -1,13 +1,24 @@
-import { useEffect } from "react"
+import { useEffect, useState } from "react"
 import { Link } from "react-router-dom"
 
 
 function RecCard({recipe})
-
 { 
+  const[clr,setclr]=useState("")
+  useEffect(()=>{check()},[])
+  function check()
+  {
+    if(recipe.vegetarian)
+    {
+      setclr('green')
+    }
+    else
+    {
+      setclr('red')
+    }
+  }
     const handleClick = () => {
         try {
-     
           const jsonString = JSON.stringify(recipe);
           localStorage.setItem('bigcard', jsonString);
           console.log('Data saved to localStorage');
@@ -17,19 +28,23 @@ function RecCard({recipe})
       };
     return(
         <Link to ={`/show/${recipe.id}`} >
-        
+
         <div className="grid  bg-white m-5 rounded-xl  h-[30rem] max-w-80 border-2 border-maron no-scrollbar relative p-2" onClick={handleClick}>
             <div className="flex justify-end">
             <img src="/icons/heart.svg" className="absolute  h-6 m-2 object-top-right fill"/>
             <img src={recipe.image} className="rounded-xl"/>
             </div>
             <div className="flex justify-end ">
-            <img src="/icons/heart.svg" className="  object-top-right  w-7 h-7 "/>    
+            <svg width="28" height="28" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <rect x="1" y="1" width="26" height="26" rx="4" stroke={`${clr}`} stroke-width="2"/>
+            <circle cx="14.0001" cy="13.9999" r="5.6" fill={`${clr}`}/>
+            </svg>
             </div>
             <h1 className="text-black text-2xl text-center font-bold font-heading my-1">{recipe.title}</h1>
             <div className="flex bg-black h-px w-4/5 mx-auto mt-2 mb-4"></div>
             <div dangerouslySetInnerHTML={{ __html: recipe.summary}} className="text-center text-black overflow-auto no-scrollbar"/>
         </div>
+
         </Link>
         
     )

@@ -1,12 +1,12 @@
 import Top from "../components/top"
 import Bottom from "../components/bottom";
 import Logo from "../components/logo";
-import {useState} from "react";
+import {useEffect, useState} from "react";
 import spoon from "../constants/spoon";
-import ListCard from "../components/listCard";
 import { Link } from "react-router-dom";
 
 function IngredientsScreen (){
+    useEffect(()=>{localStorage.removeItem('recids')},[])
     const [ingredients, setIngredients] = useState(['']);
     const handleAddInput = () => {
       const Ingredients = [...ingredients];
@@ -33,17 +33,14 @@ function IngredientsScreen (){
 
     async function getRecipe()
     {
-      let result=undefined
       try {
-        result=await spoon.get('recipes/findByIngredients',{params:{'ingredients':ingredients.toString()}})
+        const result=await spoon.get('recipes/findByIngredients',{params:{'ingredients':ingredients.toString()}})
+        const data=JSON.stringify(result.data.map((ids)=>(ids.id)))
+        console.log(data)
+        localStorage.setItem('recids',data)
       } 
       catch (error) {
         console.error(error)
-      }
-      finally{
-        localStorage.setItem('recids',JSON.stringify(result.data.map((ids)=>(
-          ids.id
-        ))))
       }
     }
 

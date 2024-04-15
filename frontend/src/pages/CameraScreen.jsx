@@ -3,8 +3,7 @@ import Bottom from "../components/bottom";
 import Logo from "../components/logo";
 import { useState } from "react";
 import spoon from "../constants/spoon";
-import ListCard from "../components/listCard";
-
+import RecCard from "../components/recCard";
 function CameraScreen (){
     const [ingredients, setIngredients] = useState(['']);
     const [result,setResult]=useState([])
@@ -84,9 +83,8 @@ return(
 
 <div className="flex">
       {result.map((recs)=>(
-        <ListCard
-        heading={recs.title}
-        image={recs.image}/>
+        <RecCard
+        recipe={recs}/>
       ))}
   </div>
 

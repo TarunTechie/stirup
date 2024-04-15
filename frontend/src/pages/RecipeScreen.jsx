@@ -6,14 +6,14 @@ import recipes from "../constants/recipes";
 import { useEffect, useState } from "react";
 export default function RecipeScreen()
 {
-    const[food,setFood]=useState([])
     useEffect(()=>{getRecipes()},[])
+    const[food,setFood]=useState([])
     async function getRecipes()
     {
         try
         {
-            const result=await spoon.get('recipes/informationBulk',{params:{'ids':JSON.stringify(localStorage.getItem('recids')),'includeNutrition':true}})
-            setFood(result.data)
+            // const result=await spoon.get('recipes/informationBulk',{params:{'ids':JSON.stringify(localStorage.getItem('recids')),'includeNutrition':true}})
+            setFood(recipes)
             console.log(result.data)
         }
         catch(error){
@@ -22,8 +22,8 @@ export default function RecipeScreen()
     }
     return(<div className="h-fit w-screen">
         <Top/>
+        <div className="grid mt-32">
         <h1 className="pgheading">Generated Recipes</h1>
-        <div className="grid justify-center">
         <div className="grid grid-cols-3">
     {food.map((rec) =>(
           <RecCard
