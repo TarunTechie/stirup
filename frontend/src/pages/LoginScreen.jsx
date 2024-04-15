@@ -24,15 +24,13 @@ function LoginScreen() {
   const handleSubmit = (e) => {
     e.preventDefault();
     setSubmitted(true);
-    ourApi.post('login',values)
+    ourApi.post('/login',values)
     .then(result => {console.log(result)
     if(result.data.name){
         nav('/')
         localStorage.setItem('userInfo', JSON.stringify(result.data))
-        
     }else{
         setErrors(result.data)
-
     }})
     .catch(err => console.log(err))
   
