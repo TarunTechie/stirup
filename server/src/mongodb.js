@@ -6,7 +6,7 @@ async function register(response)
     try {
         const user=await userModel.create({
             name:response.name,
-            email:response.mail,
+            email:response.email,
             password:response.password
         }
         )
@@ -20,8 +20,9 @@ async function register(response)
 async function login(response)
 {
     try{
-        const user=await userModel.findOne({name:response.name})
-        console.log(user)
+        const user=await userModel.findOne({email:response.email})
+        const reply=await bcrypt.compare(response.password,user.password)
+        return reply
     }
     catch(error)
     {

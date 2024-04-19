@@ -6,14 +6,14 @@ import recipes from "../constants/recipes";
 import { useEffect, useState } from "react";
 export default function RecipeScreen()
 {
-    useEffect(()=>{getRecipes()},[])
+    useEffect(()=>{getRecipes()},[localStorage.getItem()])
     const[food,setFood]=useState([])
     async function getRecipes()
     {
         try
         {
-            // const result=await spoon.get('recipes/informationBulk',{params:{'ids':JSON.stringify(localStorage.getItem('recids')),'includeNutrition':true}})
-            setFood(recipes)
+            const result=await spoon.get('recipes/informationBulk',{params:{'ids':JSON.stringify(localStorage.getItem('recids')),'includeNutrition':true}})
+            setFood(result.data)
             console.log(result.data)
         }
         catch(error){

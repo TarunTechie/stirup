@@ -1,4 +1,3 @@
-
 import { useState} from "react";
 import { useDropzone } from 'react-dropzone';
 
@@ -87,11 +86,10 @@ const handleSubmit = async (e) => {
 
   return(
     <>
-      <div {...getRootProps()}>
+      <div {...getRootProps()} className="bg-white w-1/2 h-1/2 rounded-xl">
         <input {...getInputProps()} />
         <p>Drag 'n' drop an image here, or click to select an image</p>
       </div>
-
     </>
   )
 }

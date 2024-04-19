@@ -18,15 +18,16 @@ async function decrypt(password,user_password){
 }
 
 app.post('/register',async (req,res)=>{
-    console.log("REGISTERED")
+    console.log(req.body)
     const reply=await actions.register(req.body)
     console.log(reply)
     res.send(reply)
 })
 
-app.get('/login',async (req,res)=>{
+app.post('/login',async (req,res)=>{
+    console.log(req.body)
     const reply=await actions.login(req.body)
-    res.send(reply)
+    res.send(reply.toString())
 })
 
 app.listen(5000,()=>{

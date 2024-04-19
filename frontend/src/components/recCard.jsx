@@ -35,7 +35,7 @@ function RecCard({recipe})
             <img src={recipe.image} className="rounded-xl"/>
             </div>
             <div className="flex justify-end ">
-            <svg width="28" height="28" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <svg width="28" height="28" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg" className="p-1 ">
             <rect x="1" y="1" width="26" height="26" rx="4" stroke={`${clr}`} stroke-width="2"/>
             <circle cx="14.0001" cy="13.9999" r="5.6" fill={`${clr}`}/>
             </svg>
