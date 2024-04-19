@@ -30,7 +30,7 @@ function RegisterScreen() {
     e.preventDefault();
     validateForm();
     setSubmitted(true);
-    ourApi.post('register',values)
+    ourApi.post('/register',values)
     .then(result => {console.log(result)
     nav('/login')})
     .catch(err => console.log(err))

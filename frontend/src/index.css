@@ -80,7 +80,7 @@ body
 }
 .field
 {
-    @apply bg-transparent border-b-2 border-maron w-full m-4
+    @apply bg-transparent border-b-2 border-maron w-full m-4 focus:outline-none
 }
 .btn
 {
