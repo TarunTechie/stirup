@@ -24,22 +24,22 @@ function LoginScreen() {
     e.preventDefault();
     setSubmitted(true);
     try{
-      const reply=ourApi.post('/login',values)
+      const reply=ourApi.post('/login',values).then(result=>{
+        if(result.data.reply==true)
+        {
+          console.log("logged in")
+          sessionStorage.setItem('userid',result.data.id)
+        }
+        else
+        {
+          console.log("not user")
+        }
+      })
     }
     catch(error)
     {
       console.log(error)
     }
-    // ourApi.get('/login',values)
-    // .then(result => {console.log(result)
-    // if(result.data.name){
-    //     nav('/')
-    //     localStorage.setItem('userInfo', JSON.stringify(result.data))
-    // }else{
-    //     setErrors(result.data)
-    // }})
-    // .catch(err => console.log(err))
-  
   };
 
   return (

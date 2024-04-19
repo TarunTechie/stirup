@@ -27,7 +27,7 @@ app.post('/register',async (req,res)=>{
 app.post('/login',async (req,res)=>{
     console.log(req.body)
     const reply=await actions.login(req.body)
-    res.send(reply.toString())
+    res.json(reply)
 })
 
 app.listen(5000,()=>{
