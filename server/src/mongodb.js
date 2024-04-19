@@ -1,5 +1,6 @@
 const mongoose=require('mongoose')
 const userModel=require('../models/user')
+const favsModel=require('../models/favs')
 const bcrypt=require('bcrypt')
 async function register(response)
 {
@@ -17,6 +18,7 @@ async function register(response)
         return(error)
     }
 }
+
 async function login(response)
 {
     try{
@@ -29,4 +31,24 @@ async function login(response)
         return(error)
     }
 }
-module.exports={register,login}
+
+async function favs(response)
+{
+    try{
+        const reply=await favsModel.create({
+            user:response.user,
+            id:response.id,
+            title:response.title,
+            veg:response.veg,
+            summary:response.summary,
+            ingridents:response.ingridents,
+            nutrition:response.nutrition,
+            instructions:response.instructions
+        })
+    }
+    catch(error)
+    {
+        console.log(error)
+    }
+}
+module.exports={register,login,favs}

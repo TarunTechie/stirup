@@ -30,6 +30,13 @@ app.post('/login',async (req,res)=>{
     res.json(reply)
 })
 
+app.post('/favs',async (req,res)=>{
+    const reply=await actions.favs(req.body)
+    console.log(typeof(req.body.instructions))
+    res.send(reply)
+})
+
+
 app.listen(5000,()=>{
     console.log("Server Started");
 })
