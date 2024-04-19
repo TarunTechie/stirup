@@ -6,8 +6,10 @@ import recipes from "../constants/recipes";
 import { useEffect, useState } from "react";
 export default function RecipeScreen()
 {
-    useEffect(()=>{getRecipes()},[localStorage.getItem('recids')])
+
     const[food,setFood]=useState([])
+    useEffect(()=>{getRecipes()},[localStorage.getItem('recids')])
+
     async function getRecipes()
     {
         try
