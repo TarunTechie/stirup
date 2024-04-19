@@ -7,7 +7,7 @@ import { useEffect, useState } from "react";
 export default function RecipeScreen()
 {
     const[food,setFood]=useState([])
-    useEffect(()=>{getRecipes()},[])
+    useEffect(()=>{getRecipes()},[localStorage.getItem('recids')])
     async function getRecipes()
     {
         try

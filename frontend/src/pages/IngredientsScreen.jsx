@@ -13,7 +13,6 @@ function IngredientsScreen (){
       if(Ingredients.length<6){
         setIngredients([...ingredients, '']);
       }
-      
     };
   
     const handleDeleteInput = (index) => {
@@ -54,7 +53,7 @@ return(
         <img src="/images/pagebg.jpg" className="w-screen" />
     </div>
     <div className="ml-4 gap-10">
-    <h1 className="font-heading text-7xl ml-auto underline decoration-orange decoration-1 underline-offset-[12px] ">Snap and Cook</h1>
+    <h1 className="font-heading text-7xl ml-auto underline decoration-orange decoration-1 underline-offset-[12px] ">List and Cook</h1>
     <h1 className="font-light text-5xl font-tego pt-4">Ingredients</h1>
     <div className="pt-10">
       <button className="cambtn hover:bg-orange hover:text-white" onClick={handleAddInput}>
