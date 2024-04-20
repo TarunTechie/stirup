@@ -1,9 +1,7 @@
-
 import React,{useState,useEffect} from "react"
 import Top from '../components/top'
 import Bottom from '../components/bottom'
-import spoon from '../constants/spoon'
-
+import favourite from "../actions/favourite";
 
 
 export default function Bigcard()
@@ -29,10 +27,12 @@ export default function Bigcard()
     {
         if(fav=='none')
         {
+            favourite(recipe.id,"add")
             setfav('#D22701')
         }
         if(fav=='#D22701')
         {
+            favourite(recipe.id,"rem")
             setfav('none')
         }
     }

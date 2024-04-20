@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import ourApi from '../constants/ourapi';
 import {useNavigate,Link} from 'react-router-dom'
-
 function LoginScreen() {
   const [values, setValues] = useState({
     email: "",
@@ -21,19 +20,26 @@ function LoginScreen() {
     }));
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     setSubmitted(true);
-    ourApi.post('/login',values)
-    .then(result => {console.log(result)
-    if(result.data.name){
-        nav('/')
-        localStorage.setItem('userInfo', JSON.stringify(result.data))
-    }else{
-        setErrors(result.data)
-    }})
-    .catch(err => console.log(err))
-  
+    try{
+      const reply=ourApi.post('/login',values).then(result=>{
+        if(result.data.reply==true)
+        {
+          console.log("logged in")
+          sessionStorage.setItem('userid',result.data.id)
+        }
+        else
+        {
+          console.log("not user")
+        }
+      })
+    }
+    catch(error)
+    {
+      console.log(error)
+    }
   };
 
   return (

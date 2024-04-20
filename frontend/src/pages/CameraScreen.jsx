@@ -1,4 +1,3 @@
-
 import { useState} from "react";
 import { useDropzone } from 'react-dropzone';
 import Top from "../components/top"

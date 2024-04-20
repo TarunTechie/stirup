@@ -18,16 +18,24 @@ async function decrypt(password,user_password){
 }
 
 app.post('/register',async (req,res)=>{
-    console.log("REGISTERED")
+    console.log(req.body)
     const reply=await actions.register(req.body)
     console.log(reply)
     res.send(reply)
 })
 
-app.get('/login',async (req,res)=>{
+app.post('/login',async (req,res)=>{
+    console.log(req.body)
     const reply=await actions.login(req.body)
+    res.json(reply)
+})
+
+app.post('/favs',async (req,res)=>{
+    const reply=await actions.favs(req.body)
+    console.log(typeof(req.body.instructions))
     res.send(reply)
 })
+
 
 app.listen(5000,()=>{
     console.log("Server Started");

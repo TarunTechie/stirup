@@ -1,16 +1,13 @@
 const mongoose=require("mongoose")
 const favsSchema=new mongoose.Schema({
-    user:{
-        type:Schema.Types.ObjectId,
-        ref:"user"
-    },
+    user:String,
     id:String,
     title:String,
     veg:Boolean,
     summary:String,
-    ingridents:[String],
-    details:[String],
-    instructions:String
+    ingridents:mongoose.SchemaTypes.Mixed,
+    nutrition:mongoose.SchemaTypes.Mixed,
+    instructions:mongoose.SchemaTypes.Mixed
 })
-const favsModel = mongo.model("favs",favsSchema)
+const favsModel = mongoose.model("favs",favsSchema)
 module.exports=favsModel
