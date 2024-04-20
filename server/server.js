@@ -32,11 +32,13 @@ app.post('/login',async (req,res)=>{
 
 app.post('/favs',async (req,res)=>{
     const reply=await actions.favs(req.body)
-    console.log(typeof(req.body.instructions))
     res.send(reply)
 })
 
-
+app.get('/getFavs',async(req,res)=>{
+    const reply=await actions.getFavs(req.query.id)
+    res.send(reply)
+})
 app.listen(5000,()=>{
     console.log("Server Started");
 })

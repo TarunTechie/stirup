@@ -2,6 +2,7 @@ const mongoose=require("mongoose")
 const favsSchema=new mongoose.Schema({
     user:String,
     id:String,
+    image:String,
     title:String,
     veg:Boolean,
     summary:String,

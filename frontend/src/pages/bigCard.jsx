@@ -10,11 +10,12 @@ export default function Bigcard()
     const[fav,setfav]=useState('none')
     const [vis,setvis]=useState('grid')
     const [loading, setLoading] = useState(true);
-    function togfav()
+    async function togfav()
     {
         if(fav=='none')
         {
-            favourite(recipe.id,"add")
+            let reply=await favourite(recipe.id,"add")
+            if(reply==true)
             setfav('#D22701')
         }
         if(fav=='#D22701')
