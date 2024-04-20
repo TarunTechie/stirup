@@ -16,7 +16,6 @@ export default function RecipeScreen()
         {
             const result=await spoon.get('recipes/informationBulk',{params:{'ids':JSON.stringify(localStorage.getItem('recids')),'includeNutrition':true}})
             setFood(result.data)
- 
         }
         catch(error){
             console.error(error)
