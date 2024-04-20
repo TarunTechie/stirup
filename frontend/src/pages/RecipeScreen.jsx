@@ -2,7 +2,7 @@ import spoon from "../constants/spoon";
 import Top from "../components/top";
 import Bottom from "../components/bottom";
 import RecCard from "../components/recCard";
-import recipes from "../constants/recipes";
+
 import { useEffect, useState } from "react";
 export default function RecipeScreen()
 {
@@ -16,7 +16,7 @@ export default function RecipeScreen()
         {
             const result=await spoon.get('recipes/informationBulk',{params:{'ids':JSON.stringify(localStorage.getItem('recids')),'includeNutrition':true}})
             setFood(result.data)
-            console.log(result.data)
+ 
         }
         catch(error){
             console.error(error)

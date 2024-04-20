@@ -5,6 +5,7 @@ import Card from "../components/card";
 import cards from "../constants/mianScreen";
 import Bottom from "../components/bottom";
 import { Link } from "react-router-dom";
+import Popular from "../components/Popular";
 
 import News from "../components/news";
 function HomeScreen() {
@@ -37,6 +38,7 @@ function HomeScreen() {
       </div>
     <SearchBar/>
     <Favs/>
+    <Popular />
     <News/>
     <Bottom/>  
     </>

@@ -15,7 +15,6 @@ import NutritionScreen from "./pages/NutritionScreen";
 import RandomScreen from "./pages/RandomScreen";
 import RecipeScreen from "./pages/RecipeScreen";
 import Bigcard from "./pages/bigCard";
-import Favs from "./actions/favs";
 
 const router = createBrowserRouter([
   {
@@ -54,10 +53,6 @@ const router = createBrowserRouter([
   {
     path:"/show/:id",
     element:<Bigcard/>
-  },
-  {
-    path:"/favs",
-    element:<Favs/>
   }
 ]);
 
