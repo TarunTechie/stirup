@@ -32,7 +32,7 @@ function LoginScreen() {
         }
         else
         {
-          console.log("not user")
+          setErrors("not user")
         }
       })
     }
