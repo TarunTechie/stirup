@@ -15,6 +15,11 @@ import NutritionScreen from "./pages/NutritionScreen";
 import RandomScreen from "./pages/RandomScreen";
 import RecipeScreen from "./pages/RecipeScreen";
 import Bigcard from "./pages/bigCard";
+import Cuisines from "./pages/CuisineScreen"
+import RecipesScreen from "./pages/RecipesScreen";
+import CollectionScreen from "./pages/CollectionScreen";
+import MealScreen from "./pages/MealScreen";
+
 
 const router = createBrowserRouter([
   {
@@ -53,6 +58,22 @@ const router = createBrowserRouter([
   {
     path:"/show/:id",
     element:<Bigcard/>
+  },
+  {
+    path:"/recipes",
+    element:<RecipesScreen/>
+  },
+  {
+    path:"/collections",
+    element:<CollectionScreen/>
+  },
+  {
+    path:"/cuisines/:name",
+    element:<Cuisines/>
+  },
+  {
+    path:"/meal",
+    element:<MealScreen/>
   }
 ]);
 

@@ -16,7 +16,6 @@ export default function RecipeScreen()
         {
             const result=await spoon.get('recipes/informationBulk',{params:{'ids':JSON.stringify(localStorage.getItem('recids')),'includeNutrition':true}})
             setFood(result.data)
- 
         }
         catch(error){
             console.error(error)
@@ -26,7 +25,7 @@ export default function RecipeScreen()
         <Top/>
         <div className="grid mt-32">
         <h1 className="pgheading">Generated Recipes</h1>
-        <div className="grid grid-cols-3">
+        <div className="grid grid-cols-3 mx-auto">
     {food.map((rec) =>(
           <RecCard
             recipe={rec}

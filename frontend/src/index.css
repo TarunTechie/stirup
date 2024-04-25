@@ -104,6 +104,15 @@ body
 {
     @apply fill-white
 }
+
+.cambtn1
+{
+    @apply flex items-center rounded-xl border-2 border-orange px-10 font-extrabold text-white gap-4 text-lg bg-orange
+}
+.cambtn1:hover #sv
+{
+    @apply fill-orange
+}
 .pgheading
 {
     @apply font-heading text-maron text-6xl
