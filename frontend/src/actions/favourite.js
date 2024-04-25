@@ -14,13 +14,15 @@ export default async function favourite(id,todo)
             todo:todo,
             user:user,
             id:id,
+            readyInMinutes:recipes.readyInMinutes,
+            servings:recipes.servings,
             image:recipes.image,
             title:recipes.title,
             veg:recipes.vegetarian,
             summary:recipes.summary,
-            ingridents:recipes.extendedIngredients,
-            nutrition:recipes.nutrition.nutrients,
-            instructions:recipes.analyzedInstructions[0].steps
+            extendedIngredients:recipes.extendedIngredients,
+            nutrition:recipes.nutrition,
+            analyzedInstructions:recipes.analyzedInstructions
         }
         try {
             const result=await ourApi.post('/favs',tosend)    

@@ -27,12 +27,12 @@ function LoginScreen() {
       const reply=ourApi.post('/login',values).then(result=>{
         if(result.data.reply==true)
         {
-          console.log("logged in")
           sessionStorage.setItem('userid',result.data.id)
+          nav('/')
         }
         else
         {
-          console.log("not user")
+          setErrors("User Credentials Invalid!!!")
         }
       })
     }
@@ -72,7 +72,7 @@ function LoginScreen() {
           onChange={handleInputChange}
         />
         <button className="form-field lrbtn" type="submit">
-          Login
+          LOGIN
         </button>
 
         {submitted && errors &&(

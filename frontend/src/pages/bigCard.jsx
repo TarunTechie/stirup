@@ -73,7 +73,7 @@ export default function Bigcard()
         <div className='flex relative mb-24'>
         <h1 className='absolute inset-x-0 top-0 text-center text-5xl font-nat text-orange'>{recipe.title}</h1>
 
-        <svg className="absolute top-0 right-0" width="140" height="65" viewBox="0 0 153 213" fill={isClicked ? '#D22701' : isHovered ? '#D22701' : 'none'} xmlns="http://www.w3.org/2000/svg" onClick={tofav} onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave} >
+        <svg className="absolute top-0 right-0 drop-shadow-2xl hover:w-[150px] hover:h-[75px]" width="140" height="65" viewBox="0 0 153 213"  fill={fav}xmlns="http://www.w3.org/2000/svg" onClick={tofav}  >
         <path fill-rule="evenodd" clip-rule="evenodd" d="M119.5 26.9212C95.808 -0.689602 56.218 -9.22252 26.5332 16.0606C-3.15172 41.3438 -7.33096 83.6156 15.9808 113.518C35.3629 138.38 94.0199 190.816 113.245 207.788C115.395 209.686 116.47 210.636 117.725 211.008C118.819 211.334 120.018 211.334 121.113 211.008C122.368 210.636 123.442 209.686 125.594 207.788C144.818 190.816 203.475 138.38 222.857 113.518C246.169 83.6156 242.499 41.0778 212.304 16.0606C182.109 -8.95655 143.192 -0.689602 119.5 26.9212Z" stroke="#D22701" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
         </svg>
 

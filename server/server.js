@@ -3,7 +3,6 @@ const mongo =require('mongoose')
 const cors =require('cors')
 const app = express()
 const actions= require('./src/mongodb')
-const UserModel = require('./models/user')
 app.use(express.json())
 app.use(cors())
 
@@ -18,14 +17,11 @@ async function decrypt(password,user_password){
 }
 
 app.post('/register',async (req,res)=>{
-    console.log(req.body)
     const reply=await actions.register(req.body)
-    console.log(reply)
     res.send(reply)
 })
 
 app.post('/login',async (req,res)=>{
-    console.log(req.body)
     const reply=await actions.login(req.body)
     res.json(reply)
 })

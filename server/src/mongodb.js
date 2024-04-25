@@ -5,14 +5,19 @@ const bcrypt=require('bcrypt')
 async function register(response)
 {
     try {
-        const user=await userModel.create({
+        if(await userModel.find({email:response.email})==false)
+        {
+            const user=await userModel.create({
             name:response.name,
             email:response.email,
             password:response.password
-        }
-        )
-        console.log("Regsitered")
+        })
         return("Registered")
+    }
+    else
+    {
+        return("Already a User")
+    }
     } 
     catch (error) {
         return(error)
@@ -41,13 +46,15 @@ async function favs(response)
        { const reply=await favsModel.create({
             user:response.user,
             id:response.id,
+            readyInMinutes:response.readyInMinutes,
+            servings:response.servings,
             image:response.image,
             title:response.title,
             veg:response.veg,
             summary:response.summary,
-            ingridents:response.ingridents,
+            extendedIngredients:response.extendedIngredients,
             nutrition:response.nutrition,
-            instructions:response.instructions})
+            analyzedInstructions:response.analyzedInstructions})
             return reply
         }
     }
@@ -71,7 +78,6 @@ async function favs(response)
 
 async function getFavs(response)
 {
-    console.log(response)
     const reply=await favsModel.find({user:response})
     return(reply)
 }

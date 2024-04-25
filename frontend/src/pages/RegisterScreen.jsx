@@ -1,10 +1,11 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import ourApi from '../constants/ourapi';
 import {useNavigate,Link} from 'react-router-dom'
 
 
 function RegisterScreen() {
   const [spa,setsap]=useState(10)
+  const [register,setRegister]=useState("")
   const [values, setValues] = useState({
     name: "",
     password: "",
@@ -17,6 +18,12 @@ function RegisterScreen() {
   const [errors, setErrors] = useState({});
   const nav = useNavigate()
 
+  useEffect(()=>{
+    if(register)
+    {
+      
+    }
+  },[register])
   const handleInputChange = (event) => {
     event.preventDefault();
     const { name, value } = event.target;
@@ -31,10 +38,9 @@ function RegisterScreen() {
     validateForm();
     setSubmitted(true);
     ourApi.post('/register',values)
-    .then(result => {console.log(result)
+    .then(result => {setRegister(result)
     nav('/login')})
     .catch(err => console.log(err))
-  
   };
 
   const validateForm = () => {

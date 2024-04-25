@@ -4,11 +4,13 @@ const favsSchema=new mongoose.Schema({
     id:String,
     image:String,
     title:String,
+    readyInMinutes:String,
+    servings:String,
     veg:Boolean,
     summary:String,
-    ingridents:mongoose.SchemaTypes.Mixed,
+    extendedIngredients:mongoose.SchemaTypes.Mixed,
     nutrition:mongoose.SchemaTypes.Mixed,
-    instructions:mongoose.SchemaTypes.Mixed
+    analyzedInstructions:mongoose.SchemaTypes.Mixed
 })
 const favsModel = mongoose.model("favs",favsSchema)
 module.exports=favsModel
