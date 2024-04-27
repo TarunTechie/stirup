@@ -30,7 +30,7 @@ export default function RandomScreen(){
         const c=cuisine=="Select Cusine"?"":cuisine
         const tosend= check+','+meal+','+c
         try {
-            const result=await spoon.get('recipes/random',{params:{'include-tags':tosend,'number':8,'includeNutrition':true}})
+            const result=await spoon.get('recipes/random',{params:{'include-tags':tosend,'number':8,includeNutrition:true}})
             console.log(result.data.recipes)
             setRecipe(result.data.recipes)    
         } 
