@@ -117,3 +117,18 @@ body
 {
     @apply font-heading text-maron text-6xl
 }
+.recCard
+{
+    @apply grid bg-white m-5 rounded-xl  h-[30rem] max-w-80 border-2 border-maron no-scrollbar relative p-2 overflow-hidden
+}
+.recCard:hover
+{
+    @apply -translate-y-2 shadow-lg shadow-[#0000005e]
+}
+.recCard img {
+    transition: transform 0.2s ease-in; 
+  }
+
+  .recCard:hover img {
+    transform: scale(1.1);
+  }
