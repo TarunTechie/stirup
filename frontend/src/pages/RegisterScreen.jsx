@@ -37,10 +37,22 @@ function RegisterScreen() {
     e.preventDefault();
     validateForm();
     setSubmitted(true);
-    ourApi.post('/register',values)
-    .then(result => {setRegister(result)
-    nav('/login')})
-    .catch(err => console.log(err))
+    if(valid){
+      ourApi.post('/register',values)
+      .then(result => {
+      setRegister(result)
+      const login = {email:values.email,password:values.password}
+        const reply=ourApi.post('/login',login).then(result=>{
+          if(result.data.reply==true)
+          {
+            sessionStorage.setItem('userid',result.data.id)
+            sessionStorage.setItem('name',result.data.name)
+            nav('/')
+          }
+        })
+    })
+      .catch(err => console.log(err))
+    }
   };
 
   const validateForm = () => {

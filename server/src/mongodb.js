@@ -29,7 +29,7 @@ async function login(response)
     try{
         const user=await userModel.findOne({email:response.email})
         const reply=await bcrypt.compare(response.password,user.password)
-        return ({reply:reply,id:user.id})
+        return ({reply:reply,id:user.id,name:user.name})
     }
     catch(error)
     {

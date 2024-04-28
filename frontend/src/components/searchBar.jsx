@@ -1,6 +1,6 @@
 import React,{useState,useEffect} from "react"
 import spoon from "../constants/spoon"
-
+import { Link } from "react-router-dom"
 function SearchBar(){
   const [food,setfood]=useState('')
   const [recipe,setfoodrecipes]=useState([])
@@ -61,13 +61,18 @@ function SearchBar(){
 
 <div className={`${vis} justify-center`} id="pop">
 <div className="p-4 rounded-xl text-2xl w-4/6 border-5 border-maron bg-white">
+  {recipe.length === 0?
+  <h1 className="font-tego text-center ">No results found!!</h1>
+  :
     <ul className="grid gap-4">
         {recipe.map((suggestion) => (
+          <Link to ={`/show/${suggestion.id}`} >
           <li key={suggestion.id} className="p-4 rounded-xl hover:underline decoration-orange decoration-2 underline-offset-[10px] hover:animate-bounce">
             {suggestion.name}
           </li>
+          </Link>
         ))}
-      </ul>
+      </ul>}
   </div>
   </div>
 

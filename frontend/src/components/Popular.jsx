@@ -13,7 +13,7 @@ export default function Popular(){
         };
     
 return(
-<div className="flex my-24 justify-between">
+<div className="flex ml-24 my-24 justify-between">
       <div className="flex-1">
         <div className="grid grid-cols-2 gap-y-2 ml-4">
           <h1 className="font-heading text-5xl underline decoration-orange decoration-2 underline-offset-[12px] col-span-2 mb-3">Popular Picks</h1>

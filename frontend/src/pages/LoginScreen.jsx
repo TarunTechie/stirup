@@ -28,6 +28,7 @@ function LoginScreen() {
         if(result.data.reply==true)
         {
           sessionStorage.setItem('userid',result.data.id)
+          sessionStorage.setItem('name',result.data.name)
           nav('/')
         }
         else
