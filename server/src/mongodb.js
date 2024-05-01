@@ -1,7 +1,7 @@
 const mongoose=require('mongoose')
 const userModel=require('../models/user')
-const favsModel=require('../models/favs')
 const bcrypt=require('bcrypt')
+const { response } = require('express')
 async function register(response)
 {
     try {
@@ -39,34 +39,35 @@ async function login(response)
 
 async function favs(response)
 {
-    //add and remove favourites
-   if(response.todo=="add"){
-     try{
-        if(await favsModel.find({id:response.id})==false)
-       { const reply=await favsModel.create({
-            user:response.user,
-            id:response.id,
-            readyInMinutes:response.readyInMinutes,
-            servings:response.servings,
-            image:response.image,
-            title:response.title,
-            veg:response.veg,
-            summary:response.summary,
-            extendedIngredients:response.extendedIngredients,
-            nutrition:response.nutrition,
-            analyzedInstructions:response.analyzedInstructions})
-            return reply
+    if(response.todo=="add" && await userModel.findOne({_id:response.user,'favs.id':response.id})==null)
+    {
+        try
+        {
+            const result=await userModel.findOneAndUpdate({_id:response.user},
+            {$push:{favs:
+                {
+                    id:response.id,
+                    readyInMinutes:response.readyInMinutes,
+                    servings:response.servings,
+                    image:response.image,
+                    title:response.title,
+                    veg:response.veg,
+                    summary:response.summary,
+                    extendedIngredients:response.extendedIngredients,
+                    nutrition:response.nutrition,
+                    analyzedInstructions:response.analyzedInstructions
+                }}})
+        }
+        catch(error)
+        {
+            console.log(error)
         }
     }
-    catch(error)
-    {
-        console.log(error)
-    }
-}
     if(response.todo=="rem")
     {
-        try{
-            const reply=await favsModel.deleteOne({id:response.id})
+        try
+        {
+            const result=await userModel.findOneAndUpdate({_id:response.user},{$pull:{favs:{id:response.id}}})
         }
         catch(error)
         {
@@ -74,11 +75,15 @@ async function favs(response)
         }
     }
 }
-
-
 async function getFavs(response)
 {
-    const reply=await favsModel.find({user:response})
-    return(reply)
+    try{
+        const result=await userModel.find({_id:response})
+        return(result[0].favs)
+    }
+    catch(error)
+    {
+        console.log(error)
+    }
 }
 module.exports={register,login,favs,getFavs}

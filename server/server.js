@@ -35,6 +35,7 @@ app.get('/getFavs',async(req,res)=>{
     const reply=await actions.getFavs(req.query.id)
     res.send(reply)
 })
+
 app.listen(5000,()=>{
     console.log("Server Started");
 })

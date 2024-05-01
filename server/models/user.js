@@ -1,8 +1,25 @@
 const mongo=require('mongoose')
+
+const favsSchema=new mongo.Schema({
+  user:String,
+  id:String,
+  image:String,
+  title:String,
+  readyInMinutes:String,
+  servings:String,
+  veg:Boolean,
+  summary:String,
+  extendedIngredients:mongo.SchemaTypes.Mixed,
+  nutrition:mongo.SchemaTypes.Mixed,
+  analyzedInstructions:mongo.SchemaTypes.Mixed
+})
+
+
 const UserSchema = new mongo.Schema({
     name:String,
     email:String,
     password:String,
+    favs:[favsSchema]
 })
 const crypt = require('bcrypt');
 async function encrypt(password) {
