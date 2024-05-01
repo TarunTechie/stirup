@@ -52,7 +52,10 @@ export default function Bigcard()
             const jsonString = localStorage.getItem('bigcard');
             const parsedData = JSON.parse(jsonString);
             setRecipe(parsedData)
-            console.log(recipe)
+            if(jsonString.includes(recipe.id))
+            {
+                setfav('#D22701')
+            }
         }catch(error){
             console.error('Error retrieving data from localStorage:', error);
         }finally{

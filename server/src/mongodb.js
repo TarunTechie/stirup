@@ -57,6 +57,7 @@ async function favs(response)
                     nutrition:response.nutrition,
                     analyzedInstructions:response.analyzedInstructions
                 }}})
+                return("added")
         }
         catch(error)
         {
@@ -68,6 +69,7 @@ async function favs(response)
         try
         {
             const result=await userModel.findOneAndUpdate({_id:response.user},{$pull:{favs:{id:response.id}}})
+            return("removed")
         }
         catch(error)
         {
@@ -79,6 +81,7 @@ async function getFavs(response)
 {
     try{
         const result=await userModel.find({_id:response})
+        console.log(result[0].favs)
         return(result[0].favs)
     }
     catch(error)

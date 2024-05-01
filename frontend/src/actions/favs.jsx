@@ -7,9 +7,14 @@ export default function Favs()
 {
     async function getrecs()
     {
+      let ids=[]
       const recs=await ourApi.get('/getFavs',{params:{"id":sessionStorage.getItem('userid')}})
       setRecipes(recs.data)
       console.log(recs.data)
+      recs.data.map((id)=>(
+        ids.push(id.id)
+      ))
+      localStorage.setItem("favs",ids)
     }
     const[recipes,setRecipes]=useState([])
     const user = sessionStorage.getItem('userid')
