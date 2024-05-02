@@ -81,7 +81,6 @@ async function getFavs(response)
 {
     try{
         const result=await userModel.find({_id:response})
-        console.log(result[0].favs)
         return(result[0].favs)
     }
     catch(error)
