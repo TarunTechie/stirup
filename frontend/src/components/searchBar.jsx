@@ -13,16 +13,13 @@ function SearchBar(){
       const result=await spoon.get('food/search',{params:{'query':food,'number':5}})
       setfoodrecipes(result.data.searchResults[0].results)
       setfoodingridents(result.data.searchResults[1].results)
-
     }
     catch(error){console.error(error)}
     finally{
-      console.log(recipe)
-      console.log(ingridents)
       setvis('flex')
     }
-    
   }
+
   const change=(event)=>
   {
     event.preventDefault();
@@ -46,11 +43,23 @@ function SearchBar(){
       setvis('flex')
     }
   }
+  async function nav(id)
+  {
+    try {
+      const result=await spoon.get(`recipes/${id}/information`,{params:{'includeNutrition':true}})
+      console.log(result)
+      const jsonString = JSON.stringify(result.data);
+      localStorage.setItem('bigcard', jsonString);
+      console.log('Data saved to localStorage');
+    } catch (error) {
+      console.error('Error saving data to localStorage:', error);
+    }
+  }
   return(    
   <div>
 
   <div className="flex mt-20 p-4 relative mx-auto justify-center">
-  <div className="flex w-4/6 p-4 bg-white border-maron border-2 rounded-3xl justify-around focus:outline-orange" onBlur={dis}>
+  <div className="flex w-4/6 p-4 bg-white border-maron border-2 rounded-3xl justify-around focus:outline-orange" >
   <input className="bg-white h-10 w-4/6 px-5 pr-16 rounded-3xl text-2xl tracking-widest focus:outline-none"
     type="search" name="search" placeholder="Find a dish or ingridient" onKeyPress={handleKeyPress} onChange={change} />       
   <button onClick={send}>
@@ -66,8 +75,8 @@ function SearchBar(){
   :
     <ul className="grid gap-4">
         {recipe.map((suggestion) => (
-          <Link to ={`/show/${suggestion.id}`} >
-          <li key={suggestion.id} className="p-4 rounded-xl hover:underline decoration-orange decoration-2 underline-offset-[10px] hover:animate-bounce">
+          <Link to ={`/show/${suggestion.id}`}>
+          <li key={suggestion.id} onClick={()=>{nav(suggestion.id)}} className="p-4 rounded-xl hover:underline decoration-orange decoration-2 underline-offset-[10px] hover:-translate-y-2">
             {suggestion.name}
           </li>
           </Link>
@@ -78,8 +87,5 @@ function SearchBar(){
 
   </div>
 )
-
 }
-
-
 export default SearchBar

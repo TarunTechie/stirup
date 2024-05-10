@@ -5,7 +5,7 @@ import {useEffect, useState} from "react";
 import spoon from "../constants/spoon";
 import { Link } from "react-router-dom";
 import RecCard from "../components/recCard";
-
+import { ScrollRestoration } from "react-router-dom";
 
 function NutritionScreen(){
 
@@ -63,6 +63,7 @@ function NutritionScreen(){
 
     return(
         <div className="bg-white">
+          <ScrollRestoration/>
             <Top/>
             <div>
                 <img src="/images/n_bg.jpeg" className="w-screen h-[800px] mx-auto mb-12"/>
@@ -161,6 +162,9 @@ function NutritionScreen(){
       }
     </div>
     </div>
+    <button className="px-12 py-6 cambtn1 hover:bg-white hover:text-orange mx-auto my-12" onClick={getMeals}>
+      Save Recipes
+      </button>
     </div>
     )}
 

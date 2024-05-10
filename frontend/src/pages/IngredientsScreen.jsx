@@ -4,6 +4,7 @@ import Logo from "../components/logo";
 import {useEffect, useState} from "react";
 import spoon from "../constants/spoon";
 import { Link } from "react-router-dom";
+import { ScrollRestoration } from "react-router-dom";
 
 function IngredientsScreen (){
     useEffect(()=>{localStorage.removeItem('recids')},[])
@@ -45,6 +46,7 @@ function IngredientsScreen (){
 
 return(
     <div className="bg-white">
+      <ScrollRestoration/>
     <Top />
     <div >
         <img src="/images/pagebg.jpg" className="w-screen" />

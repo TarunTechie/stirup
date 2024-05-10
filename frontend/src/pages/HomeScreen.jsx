@@ -4,13 +4,14 @@ import Favs from "../actions/favs";
 import Card from "../components/card";
 import cards from "../constants/mianScreen";
 import Bottom from "../components/bottom";
-import { Link } from "react-router-dom";
+import { Link , ScrollRestoration} from "react-router-dom";
 import Popular from "../components/Popular";
 
 import News from "../components/news";
 function HomeScreen() {
   return (
     <>
+    <ScrollRestoration/>
     <Top/>
     <div className='mb-8'>
       <img src="/images/frontpage.png" className='w-screen h-screen '/>
