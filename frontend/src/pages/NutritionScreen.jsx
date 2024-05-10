@@ -6,6 +6,7 @@ import spoon from "../constants/spoon";
 import { Link } from "react-router-dom";
 import RecCard from "../components/recCard";
 import { ScrollRestoration } from "react-router-dom";
+import ourApi from "../constants/ourapi";
 
 function NutritionScreen(){
 
@@ -25,7 +26,7 @@ function NutritionScreen(){
         try {
             const result=await spoon.get('mealplanner/generate?timeFrame=day',{params:{'diet':selectedOption,'targetCalories':calorie.toString()}})
             let data=JSON.stringify(result.data.meals.map((ids)=>(ids.id)))
-            data = data.replace(/^\[|\]$/g, '');
+            data = data.replace(/^\[|\]$/g,'');
             const nutrients=JSON.stringify(result.data.nutrients)
             const mealIds = [data, nutrients]
             const mealIdsString = JSON.stringify(mealIds);
@@ -56,6 +57,29 @@ function NutritionScreen(){
           catch(error){
               console.error(error)
           }
+      }
+      async function updateMeals()
+      {
+          const retrievedMealIdsString = localStorage.getItem('mealids');
+          const retrievedMealIds = JSON.parse(retrievedMealIdsString);
+          let mealids=JSON.stringify(retrievedMealIds[0])
+          mealids = mealids.replace(/^"|"$/g, '');
+          let result=undefined
+          try
+          {
+              result=await spoon.get('recipes/informationBulk',{params:{'ids':mealids,'includeNutrition':true}})
+          }
+          catch(error){
+              console.error(error)
+          }
+        console.log(result)
+        try{
+          const res=await ourApi.post('/meals',result.data,{params:{id:sessionStorage.getItem('userid')}})
+          console.log(res)
+        }
+        catch(error){
+          console.log(error)
+        }
       }
       useEffect(()=>{getRecipes()},[localStorage.getItem('mealids')])
 
@@ -162,9 +186,9 @@ function NutritionScreen(){
       }
     </div>
     </div>
-    <button className="px-12 py-6 cambtn1 hover:bg-white hover:text-orange mx-auto my-12" onClick={getMeals}>
+    <button className="px-12 py-4 cambtn1 hover:bg-white hover:text-orange mx-auto my-12" onClick={updateMeals}>
       Save Recipes
-      </button>
+    </button>
     </div>
     )}
 

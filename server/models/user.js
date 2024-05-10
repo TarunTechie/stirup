@@ -19,7 +19,8 @@ const UserSchema = new mongo.Schema({
     name:String,
     email:String,
     password:String,
-    favs:[favsSchema]
+    favs:[favsSchema],
+    meals:[]
 })
 const crypt = require('bcrypt');
 async function encrypt(password) {

@@ -88,4 +88,44 @@ async function getFavs(response)
         console.log(error)
     }
 }
-module.exports={register,login,favs,getFavs}
+
+async function meals(response,id)
+{
+    const clear=await userModel.findOneAndUpdate({_id:id},{$pull:{meals:{}}})
+    if(await userModel.findOne({_id:id,'meals.id':response.id})==null)
+    {
+        try
+        {
+            const result=await userModel.findOneAndUpdate({_id:id},{meals:response})
+            return("added")
+        }
+        catch(error)
+        {
+            console.log(error)
+        }
+    }
+    if(response.todo=="rem")
+    {
+        try
+        {
+            const result=await userModel.findOneAndUpdate({_id:id},{$pull:{meals:{id:response.id}}})
+            return("removed")
+        }
+        catch(error)
+        {
+            console.log(error)
+        }
+    }
+}
+async function getMeals(response)
+{
+    try{
+        const result=await userModel.find({_id:response})
+        return(result[0].meals)
+    }
+    catch(error)
+    {
+        console.log(error)
+    }
+}
+module.exports={register,login,favs,getFavs,meals,getMeals}

@@ -3,7 +3,7 @@ const mongo =require('mongoose')
 const cors =require('cors')
 const app = express()
 const actions= require('./src/mongodb')
-app.use(express.json())
+app.use(express.json({limit:'50mb'}))
 app.use(cors())
 
 mongo.connect("mongodb://localhost:27017/User")
@@ -33,6 +33,17 @@ app.post('/favs',async (req,res)=>{
 
 app.get('/getFavs',async(req,res)=>{
     const reply=await actions.getFavs(req.query.id)
+    res.send(reply)
+})
+
+app.post('/meals',async (req,res)=>{
+    const reply=await actions.meals(req.body,req.query.id)
+    console.log(req.query.id)
+    res.send(reply)
+})
+
+app.get('/getMeals',async(req,res)=>{
+    const reply=await actions.getMeals(req.query.id)
     res.send(reply)
 })
 
