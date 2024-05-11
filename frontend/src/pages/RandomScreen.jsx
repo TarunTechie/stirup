@@ -9,6 +9,7 @@ import { ScrollRestoration } from "react-router-dom";
 export default function RandomScreen(){
     const meals=['Main Course','Appetizer','Salad','Breakfast','Desert','Beverage','Snack',"Soup"]
     const cuisines=["Indian","Asian","Chinese","French","Italian","Mexican","Thai","American"]
+    const[vis,setVis]=useState('hidden')
     const[check,setCheck]=useState({})
     const[recipe,setRecipe]=useState([])
     const[meal,setMeal]=useState('')
@@ -33,7 +34,8 @@ export default function RandomScreen(){
         try {
             const result=await spoon.get('recipes/random',{params:{'include-tags':tosend,'number':8,'includeNutrition':true}})
             console.log(result.data.recipes)
-            setRecipe(result.data.recipes)    
+            setRecipe(result.data.recipes) 
+            setVis('grid grid-cols-4')   
         } 
         catch (error) {
             console.log(error)
@@ -103,9 +105,12 @@ export default function RandomScreen(){
 
         </div>
             <button className="flex btn mx-auto my-10" onClick={send}>GENERATE</button>
-        <div className="grid grid-cols-4 mx-auto">
-                {
-                    recipe.map((recs)=>(
+        <div className={`${vis}  mx-auto justify-center`}>
+                {recipe.length===0?
+                    <div className="flex justify-center w-screen">
+                    <h1 className="text-center text-5xl font-tego">TRY A DIFFERENT COMBINATION</h1>
+                    </div>
+                    :recipe.map((recs)=>(
                         <RecCard recipe={recs}/>
                     ))
                 }
