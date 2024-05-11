@@ -46,10 +46,12 @@ function LoginScreen() {
   return (
     <div className="flex justify-between  form-container h-screen overflow-hidden bg-[#FDE4CE]">
       <div className='grid justify-between'>
-        <img src='/fulllogo.svg' className='max-w-lg'/>
-        <img src='/images/login.png' className='max-w-xl'/>
+        <img src='/images/login.png' className='max-w-xl mt-24 '/>
       </div>
       <form className="login-form grid w-1/3 mx-auto content-center justify-items-center gap-10 p-10 " onSubmit={handleSubmit}>
+      <Link to="/">
+        <img src='/fulllogo.svg' className='max-w-lg'/>
+        </Link>
       <div className='flex justify-between gap-10'>
         <h1 className='text-xl font-extrabold text-maron underline underline-offset-8'>LOGIN</h1>
         <Link to="/register"><h1 className='text-xl font-extrabold text-maron'>REGISTER</h1></Link>

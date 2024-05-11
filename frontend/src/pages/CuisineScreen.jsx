@@ -4,6 +4,7 @@ import Bottom from "../components/bottom";
 import RecCard from "../components/recCard";
 import { useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
+import { ScrollRestoration } from "react-router-dom";
 
 export default function Cuisines() {
     const [food, setFood] = useState([]);
@@ -53,6 +54,7 @@ export default function Cuisines() {
 
     return (
         <div className="h-fit w-screen">
+            <ScrollRestoration/>
             <Top />
             <div className="grid mt-32">
                 <h1 className="pgheading underline mb-6 mx-auto">{name.toUpperCase()} CUISINE</h1>

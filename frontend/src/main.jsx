@@ -18,9 +18,7 @@ import Bigcard from "./pages/bigCard";
 import Cuisines from "./pages/CuisineScreen"
 import RecipesScreen from "./pages/RecipesScreen";
 import CollectionScreen from "./pages/CollectionScreen";
-import MealScreen from "./pages/MealScreen";
-
-
+import Profile from "./pages/profileScreen";
 const router = createBrowserRouter([
   {
     path: "/",
@@ -72,9 +70,9 @@ const router = createBrowserRouter([
     element:<Cuisines/>
   },
   {
-    path:"/meal",
-    element:<MealScreen/>
-  }
+    path:"/profile",
+    element:<Profile/>
+  },
 ]);
 
 ReactDOM.createRoot(document.getElementById("root")).render(

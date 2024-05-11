@@ -4,6 +4,7 @@ import Top from "../components/top"
 import Bottom from "../components/bottom";
 import { Link } from "react-router-dom";
 import spoon from "../constants/spoon";
+import { ScrollRestoration } from "react-router-dom";
 
 export default function CameraScreen(){
 
@@ -120,6 +121,7 @@ const handleSubmit = async (e) => {
 
   return(
     <>
+    <ScrollRestoration/>
     <div className="bg-white">
     <Top />
     <div >

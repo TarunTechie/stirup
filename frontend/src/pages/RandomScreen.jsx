@@ -4,6 +4,7 @@ import Bottom from "../components/bottom"
 import spoon from "../constants/spoon"
 import RecCard from "../components/recCard";
 import recipes from "../constants/recipes"
+import { ScrollRestoration } from "react-router-dom";
 
 export default function RandomScreen(){
     const meals=['Main Course','Appetizer','Salad','Breakfast','Desert','Beverage','Snack',"Soup"]
@@ -40,7 +41,9 @@ export default function RandomScreen(){
 
     }
     return(<div className="w-screen">
+        <ScrollRestoration/>
         <Top/>
+        <img src="/images/randombg.png" className="w-screen h-[800px] mx-auto mb-12"/>
         <h1 className="font-heading text-6xl text-center mt-24">Explore Random Recipes</h1>
         <h1 className="font-heading text-4xl">Meal Prefernce</h1>
         <div className="grid grid-cols-4 gap-10 mx-10 my-10">

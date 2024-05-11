@@ -59,12 +59,15 @@ export default function Top() {
                             onMouseLeave={handleMenuClose}
                         >
                             <div role="none">
+                                <Link to="/profile">
                                 <h1 className="rounded-t-xl font-bold text-maron block px-4 py-2 hover:bg-orange hover:text-white" role="menuitem" tabIndex="-1" id="menu-item-0">
                                     Profile
                                 </h1>
+                                </Link>
+                                <Link to="/collections">
                                 <h1 className="font-bold text-maron block px-4 py-2 hover:bg-orange hover:text-white" role="menuitem" tabIndex="-1" id="menu-item-0">
-                                    Your Choices
-                                </h1>
+                                    Favourites
+                                </h1></Link>
                                 <h1 className="rounded-b-xl font-bold text-maron block px-4 py-2 hover:bg-orange hover:text-white" role="menuitem" tabIndex="-1" id="menu-item-3" onClick={handleLogout}>
                                         Logout
                                    </h1>

@@ -82,7 +82,9 @@ function RegisterScreen() {
   return (
     <div className="flex justify-between  form-container w-screen h-screen  bg-[#FDE4CE]">
       <form className="register-form grid content-center justify-items-center p-10 mx-auto" onSubmit={handleSubmit}>
+      <Link to="/">
       <img src='/fulllogo.svg' className='max-w-sm'/>
+      </Link>
       <div className='flex justify-between gap-10'>
         <Link to="/login"><h1 className='text-xl font-extrabold text-maron'>LOGIN</h1></Link>
         <h1 className='text-xl font-extrabold text-maron underline underline-offset-8'>REGISTER</h1>
