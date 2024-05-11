@@ -74,31 +74,27 @@ export default function Profile()
     useEffect(()=>{defs()},[])
     return(
         <div className="grid w-screen justify-center">
-            <div className="absolute">
-                <Link to="/"><img src="/fulllogo.svg" alt="" srcset="" className="mt-1"/></Link>
+            <div className="bg-maron p-4">
+                <Link to="/"><img src="/fulllogo.svg" alt="" srcset="" className="flex mx-auto justify-center p-4"/></Link>
             </div>
         <h1 className="mt-36 ml-16 object-center font-heading text-6xl  underline decoration-orange decoration-2 underline-offset-[12px]">PROFILE</h1>
-         
-        <div className="flex items-center mx-auto">
-            <img src="\icons\profile.png" alt="" srcset=""className="h-28 w-28" />
+        <div className="flex items-center mx-auto justify-center">
+            <img src="\icons\profile.png" alt="" srcset=""className="flex mx-auto h-28 w-28" />
             <h1 className="font-heading text-5xl ml-16">{sessionStorage.getItem('name').toUpperCase()}</h1>
         </div>
         <div className="w-screen">
         <div className=" bg-maron my-5 w-3/5 h-1 mx-auto"></div>
         </div>
         <div className="grid gap-5">
-        <div className=" flex w-2/3 mx-auto items-center ">
-        <h1>Name</h1>
+        <div className="flex w-2/3 mx-auto items-center ">
+        <h1 className="text-xl font-nat">Name</h1>
         <input
             type="text"
-            
             className="mx-auto bg-white border-2 h-10  w-1/2 border-orange  focus: outline-none"
             value={sessionStorage.getItem('name')} 
             // onChange={(event) => handleInputChange(index, event)}
             placeholder="Enter ingredient"
           />
-          <button onClick={() => handleDeleteInput(index)}><span><img src="/icons/edit.png" className="w-4 h-4"/></span></button>
-         
         </div>
         {/* <div className=" flex w-2/3  mx-auto items-center ">
         <h1>password</h1>
@@ -122,8 +118,8 @@ export default function Profile()
           <button onClick={() => handleDeleteInput(index)}><span><img src="/icons/edit.png" className="w-4 h-4"/></span></button>
         </div> */}
 
-        <div className=" flex w-2/3  mx-auto items-center ">
-        <h1>calories</h1>
+        <div className="flex w-2/3  mx-auto items-center ">
+        <h1 className="text-xl font-nat">Calories</h1>
         <input
             type="text"
             defaultValue={cals}
@@ -152,8 +148,8 @@ export default function Profile()
             </div>
             </div>
             <div className="container mx-auto mt-8">
-      <h1 className="text-2xl font-semibold mb-4">Select Intolerances:</h1>
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+      <h1 className="text-2xl mb-4 font-nat">Select Intolerances:</h1>
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 mx-10">
         {intolerances.map((intolerance, index) => (
           <Checkbox
             key={index}
