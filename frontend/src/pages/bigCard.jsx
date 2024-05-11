@@ -80,7 +80,7 @@ export default function Bigcard()
                 <span className='flex gap-5 items-center text-2xl'><img src="/icons/cals.svg" className='w-12 h-12'/>:<h1>{recipe.nutrition.nutrients[0].amount} kcal</h1></span>
             </div>
             <div className="flex bg-black h-py w-1"></div>
-            <div className='grid gap-6 '>``
+            <div className='grid gap-6 '>
                 <span className='flex gap-5 items-center text-2xl'><img src="/icons/carb.svg" className="h-14"/>Carbs:<h1>{recipe.nutrition.nutrients[3].amount} {recipe.nutrition.nutrients[3].unit}</h1></span>
                 <span className='flex gap-5 items-center text-2xl'><img src="/icons/fat.svg" className="h-14"/>Fat:<h1>{recipe.nutrition.nutrients[1].amount} {recipe.nutrition.nutrients[1].unit}</h1></span>
                 <span className='flex gap-5 items-center text-2xl'><img src="/icons/protein.svg" className="h-14"/>Protein:<h1>{recipe.nutrition.nutrients[8].amount} {recipe.nutrition.nutrients[8].unit}</h1></span>

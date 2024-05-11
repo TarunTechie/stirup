@@ -35,7 +35,7 @@ export default function RandomScreen(){
             const result=await spoon.get('recipes/random',{params:{'include-tags':tosend,'number':8,'includeNutrition':true}})
             console.log(result.data.recipes)
             setRecipe(result.data.recipes) 
-            setVis('grid')   
+            setVis('grid grid-cols-4')   
         } 
         catch (error) {
             console.log(error)
@@ -105,9 +105,11 @@ export default function RandomScreen(){
 
         </div>
             <button className="flex btn mx-auto my-10" onClick={send}>GENERATE</button>
-        <div className={`${vis} grid-cols-4 mx-auto justify-center`}>
+        <div className={`${vis}  mx-auto justify-center`}>
                 {recipe.length===0?
-                    <h1 className="flex mx-auto text-center text-3xl font-tego">TRY A DIFFERENT COMBINATION</h1>
+                    <div className="flex justify-center w-screen">
+                    <h1 className="text-center text-5xl font-tego">TRY A DIFFERENT COMBINATION</h1>
+                    </div>
                     :recipe.map((recs)=>(
                         <RecCard recipe={recs}/>
                     ))
