@@ -128,4 +128,32 @@ async function getMeals(response)
         console.log(error)
     }
 }
-module.exports={register,login,favs,getFavs,meals,getMeals}
+async function user(response)
+{
+    try{
+        if(response.action=='c')
+        {
+            const result=await userModel.findOneAndUpdate({_id:response.id},
+                {
+                    cals:response.cals,
+                    cusine:response.cus,
+                    intols:response.intol
+                }
+            )
+        }
+        if(response.action=='d')
+        {
+            const result=await userModel.deleteOne({_id:response.id})
+        }
+    }
+    catch(error)
+    {
+        console.log(error)
+    }
+}
+async function getUser(response)
+{
+    const result=await userModel.find({_id:response})
+    return(result)
+}
+module.exports={register,login,favs,getFavs,meals,getMeals,user,getUser}

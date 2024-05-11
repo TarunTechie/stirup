@@ -1,6 +1,6 @@
 import Top from "../components/top";
 import SearchBar from "../components/searchBar";
-import Favs from "../actions/favs";
+import Meals from "../actions/meals";
 import Card from "../components/card";
 import cards from "../constants/mianScreen";
 import Bottom from "../components/bottom";
@@ -38,7 +38,7 @@ function HomeScreen() {
       }
       </div>
     <SearchBar/>
-    <Favs/>
+    <Meals/>
     <Popular />
     <News/>
     <Bottom/>  

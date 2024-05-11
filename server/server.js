@@ -15,7 +15,13 @@ async function decrypt(password,user_password){
         const ispass=await crypt.compare(password,user_password)
         return ispass
 }
-
+app.post('/user',async(req,res)=>{
+    const reply=await actions.user(req.body)
+})
+app.get('/getUser',async(req,res)=>{
+    const reply=await actions.getUser(req.query.id)
+    res.send(reply)
+})
 app.post('/register',async (req,res)=>{
     const reply=await actions.register(req.body)
     res.send(reply)
