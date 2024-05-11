@@ -19,6 +19,7 @@ import Cuisines from "./pages/CuisineScreen"
 import RecipesScreen from "./pages/RecipesScreen";
 import CollectionScreen from "./pages/CollectionScreen";
 import Profile from "./pages/profileScreen";
+import Aboutus from "./pages/aboutus";
 const router = createBrowserRouter([
   {
     path: "/",
@@ -73,6 +74,10 @@ const router = createBrowserRouter([
     path:"/profile",
     element:<Profile/>
   },
+  {
+    path:"/aboutus",
+    element:<Aboutus/>
+  }
 ]);
 
 ReactDOM.createRoot(document.getElementById("root")).render(

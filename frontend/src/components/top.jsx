@@ -31,7 +31,7 @@ export default function Top() {
                 <ul className="flex gap-44">
                     <Link to="/"><li className="hover:underline underline-offset-4" >Home</li></Link>
                     <Link to="/recipes"><li className="hover:underline underline-offset-4" >Recipes</li></Link>
-                    <Link to="/"><li className="hover:underline underline-offset-4" >About Us</li></Link>
+                    <Link to="/aboutus"><li className="hover:underline underline-offset-4" >About Us</li></Link>
                     <Link to="/collections"><li className="hover:underline underline-offset-4 " >Collections</li></Link>
                 </ul>
             </div>
