@@ -63,7 +63,7 @@ To run this project, you will need to add the following environment variables to
 
 `API_KEY`
 
-You have to obtain the API_KEY from [Spoonacular](#https://spoonacular.com/food-api)
+You have to obtain the API_KEY from [spoonacular API](https://spoonacular.com/food-api)
 
 
 
