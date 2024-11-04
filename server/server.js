@@ -2,6 +2,7 @@ const express = require('express')
 const mongo =require('mongoose')
 const cors =require('cors')
 const app = express()
+const path=require('path')
 const actions= require('./src/mongodb')
 app.use(express.json({limit:'50mb'}))
 app.use(cors())
@@ -53,6 +54,8 @@ app.get('/getMeals',async(req,res)=>{
     res.send(reply)
 })
 
+app.use(express.static(path.join(__dirname,"dist")))
+
 app.listen(5000,()=>{
-    console.log("Server Started");
+    console.log("Server Started on PORT:5000");
 })
