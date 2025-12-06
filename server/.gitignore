@@ -23,3 +23,5 @@ static
 *.njsproj
 *.sln
 *.sw?
+
+.env 

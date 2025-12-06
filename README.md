@@ -57,13 +57,24 @@ Start the server
 ```bash
   npm run dev
 ```
-## Environment Variables
+Run the Server on Docker
 
+```bash
+  docker compose -f .\docker-compose.yaml -p stirup_server up --build -d
+```
+## Environment Variables
+### FRONTEND 
 To run this project, you will need to add the following environment variables to your .env file
 
-`API_KEY`
+`VITE_APIKEY`
 
 You have to obtain the API_KEY from [spoonacular API](https://spoonacular.com/food-api)
 
+### BACKEND 
+MongoDB Connection String
 
+`MONGODB_CONNECTION_STRING`
 
+## To Build Docker Images
+
+Run the `build.bat` file

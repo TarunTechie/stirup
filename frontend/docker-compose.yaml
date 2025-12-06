@@ -1,0 +1,8 @@
+services:
+  frontend:
+    image: stirup_frontend
+    ports:
+      - 5173:5173
+    build: .
+    environment:
+      - VITE_APIKEY=${VITE_APIKEY}

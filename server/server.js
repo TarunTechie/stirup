@@ -2,13 +2,12 @@ const express = require('express')
 const mongo =require('mongoose')
 const cors =require('cors')
 const app = express()
-const path=require('path')
+const path = require('path')
+const fs=require('fs')
 const actions= require('./src/mongodb')
 app.use(express.json({limit:'50mb'}))
 app.use(cors())
-
-mongo.connect("mongodb://localhost:27017/User")
-
+mongo.connect(process.env.MONGODB_CONNECTION_STRING || "mongodb://localhost:27017/Users")
 const crypt=require('bcrypt')
 
 async function decrypt(password,user_password){
@@ -55,6 +54,15 @@ app.get('/getMeals',async(req,res)=>{
 })
 
 app.use(express.static(path.join(__dirname,"dist")))
+
+app.get('*', (req, res) => {
+    const indexPath = path.join(__dirname, 'dist', 'index.html')
+    if (!fs.existsSync(indexPath))
+    {
+        res.status(500).send("Build files not found!!")
+    }
+    res.sendFile(indexPath);
+});
 
 app.listen(5000,()=>{
     console.log("Server Started on PORT:5000");

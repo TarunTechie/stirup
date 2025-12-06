@@ -1,0 +1,26 @@
+services:
+  mongo:
+    image: mongo:latest
+    ports:
+      - 27017:27017
+    environment:
+      - MONGO_INITDB_ROOT_USERNAME=admin
+      - MONGO_INITDB_ROOT_PASSWORD=example123
+    volumes:
+      - mymongo:/data/db
+
+  express:
+    image: stirup_backend
+    ports:
+     - 5000:5000
+    build: .
+    environment:
+      - MONGODB_CONNECTION_STRING=${MONGODB_CONNECTION_STRING}
+    depends_on:
+      - mongo
+    volumes:
+      - mymongo:/app/data
+
+volumes:
+  mymongo:
+    driver: local
